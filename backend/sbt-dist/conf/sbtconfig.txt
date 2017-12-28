@@ -1,4 +1,4 @@
-# Set the javaalign-self-center args to high
+# Set the java args to high
 
 -Xmx512M
 
