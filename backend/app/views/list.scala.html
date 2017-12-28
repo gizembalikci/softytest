@@ -1,8 +1,8 @@
-@(currentPage: io.ebean.PagedList[Computer], currentSortBy: String, currentOrder: String, currentFilter: String)
+@(currentPage: io.ebean.PagedList[User], currentSortBy: String, currentOrder: String, currentFilter: String)
 
-@****************************************
+***************************************
 * Helper generating navigation links    *
-****************************************@
+***************************************
 @link(newPage:Int, newSortBy:String) = @{
 
     var sortBy = currentSortBy
@@ -26,9 +26,9 @@
 
 }
 
-@**********************************
+*********************************
 * Helper generating table headers *
-***********************************@
+**********************************
 @header(key:String, title:String) = {
     <th class="@key.replace(".","_") header @if(currentSortBy == key) { @{if(currentOrder == "asc") "headerSortDown" else "headerSortUp" } }">
         <a href="@link(0, key)">@title</a>

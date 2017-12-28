@@ -4,12 +4,13 @@ import java.util.*;
 import javax.persistence.*;
 
 import io.ebean.*;
+import io.ebean.annotation.DbArray;
 import play.data.format.*;
 import play.data.validation.*;
 
 @Entity
 @Table
-public class UserAccount extends BaseModel{
+public class User extends BaseModel{
     private static final long serialVersionUID = 1L;
     @Constraints.Required
     @Constraints.Email
@@ -21,6 +22,8 @@ public class UserAccount extends BaseModel{
     @Constraints.Required
     public String passwordSalt;
 
-    @OneToOne
-    public UserProfile userProfile;
+    public String name;
+    public String testStatistics;
+    public String profilePic;
+    public String bio;
 }

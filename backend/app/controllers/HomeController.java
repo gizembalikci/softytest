@@ -1,14 +1,12 @@
 package controllers;
 
-import models.Computer;
 import play.data.Form;
 import play.data.FormFactory;
 import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Results;
-import repository.CompanyRepository;
-import repository.ComputerRepository;
+import repository.UserRepository;
 
 import javax.inject.Inject;
 import javax.persistence.PersistenceException;
@@ -20,19 +18,17 @@ import java.util.concurrent.CompletionStage;
  */
 public class HomeController extends Controller {
 
-    private final ComputerRepository computerRepository;
-    private final CompanyRepository companyRepository;
+    private final UserRepository computerRepository;
     private final FormFactory formFactory;
     private final HttpExecutionContext httpExecutionContext;
 
     @Inject
     public HomeController(FormFactory formFactory,
-                          ComputerRepository computerRepository,
-                          CompanyRepository companyRepository,
+                          UserRepository computerRepository,
+                          UserRepository companyRepository,
                           HttpExecutionContext httpExecutionContext) {
         this.computerRepository = computerRepository;
         this.formFactory = formFactory;
-        this.companyRepository = companyRepository;
         this.httpExecutionContext = httpExecutionContext;
     }
 
@@ -156,4 +152,4 @@ public class HomeController extends Controller {
     }
 
 }
-            
+
