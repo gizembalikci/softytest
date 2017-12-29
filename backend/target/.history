@@ -1,1 +1,14 @@
 ;reload; set _root_.org.jetbrains.sbt.StructureKeys.sbtStructureOptions in Global := "download resolveClassifiers" ;*/*:dumpStructureTo /tmp/sbt-structure.xml; session clear-all
+run
+all {file:/home/cagdas/softytestFinal/backend/}root/products {file:/home/cagdas/softytestFinal/backend/}root/test:products
+run
+all {file:/home/cagdas/softytestFinal/backend/}root/products {file:/home/cagdas/softytestFinal/backend/}root/test:products
+run
+test
+run
+all {file:/home/cagdas/softytestFinal/backend/}root/products {file:/home/cagdas/softytestFinal/backend/}root/test:products
+run
+all {file:/home/cagdas/softytestFinal/backend/}root/products {file:/home/cagdas/softytestFinal/backend/}root/test:products
+run
+all {file:/home/cagdas/softytestFinal/backend/}root/products {file:/home/cagdas/softytestFinal/backend/}root/test:products
+run

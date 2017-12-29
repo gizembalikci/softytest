@@ -3,7 +3,7 @@ package repository;
 import io.ebean.Ebean;
 import io.ebean.EbeanServer;
 import io.ebean.Finder;
-import models.Coding;
+import models.CodingQuestion;
 import play.db.ebean.EbeanConfig;
 
 import javax.inject.Inject;
@@ -18,10 +18,10 @@ public class CodingRepository {
         this.executionContext = executionContext;
     }
 
-    public static Finder<Long, Coding> find = new Finder<>(Coding.class);
+    public static Finder<Long, CodingQuestion> find = new Finder<>(CodingQuestion.class);
 
     public void insertCodingQuestion(String questionContent, int category, int difficulty, int timeToSolve, String inputs, String outputs, String programmingLanguage){
-        Coding coding = new Coding();
+        CodingQuestion coding = new CodingQuestion();
         coding.questionContent = questionContent;
         coding.category = category;
         coding.difficulty = difficulty;

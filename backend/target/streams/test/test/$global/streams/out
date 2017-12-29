@@ -1,0 +1,118 @@
+[0m[[0m[0mdebug[0m] [0m[0mjavaOptions: Vector()[0m
+[0m[[0m[0mdebug[0m] [0m[0mForking tests - parallelism = false[0m
+[0m[[0m[0mdebug[0m] [0m[0mCreate a single-thread test executor[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunner for com.novocode.junit.JUnitFramework produced 3 initial tasks for 3 tests.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(UnitTest, sbt.ForkMain$AnnotatedFingerscan@294005be, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest [33mUnitTest[0m.[36msimpleCheck[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest [33mUnitTest[0m.[36msimpleCheck[0m finished, took 0.236 sec[0m
+[0m[[0m[0minfo[0m] [0m[0mTest [33mUnitTest[0m.[36mtestAsync[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest [33mUnitTest[0m.[36mtestAsync[0m finished, took 4.271 sec[0m
+[0m[[0m[0minfo[0m] [0m[0mTest [33mUnitTest[0m.[36mtestCount[0m started[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest [33mUnitTest[0m.[36mtestCount[0m finished, took 0.01 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[34m0 failed[0m[34m, [0m[34m0 ignored[0m[34m, 3 total, 4.537s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 3 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(FunctionalTest, sbt.ForkMain$AnnotatedFingerscan@732873e, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest [33mFunctionalTest[0m.[36mrenderTemplate[0m started[0m
+[0m[[0m[31merror[0m] [0m[0mTest [33mFunctionalTest[0m.[31mrenderTemplate[0m failed: play.api.db.evolutions.[31mInconsistentDatabase[0m: Database 'default' is in an inconsistent state![An evolution has not been applied properly. Please check the problem and resolve it manually before marking it as resolved.], took 5.076 sec[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.DatabaseEvolutions.$anonfun$checkEvolutionsState$3(EvolutionsApi.scala:285)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.DatabaseEvolutions.$anonfun$checkEvolutionsState$3$adapted(EvolutionsApi.scala:270)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.DatabaseEvolutions.executeQuery(EvolutionsApi.scala:317)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.DatabaseEvolutions.checkEvolutionsState(EvolutionsApi.scala:270)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.DatabaseEvolutions.evolve(EvolutionsApi.scala:239)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.DefaultEvolutionsApi.evolve(EvolutionsApi.scala:94)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutions.$anonfun$runEvolutions$1(ApplicationEvolutions.scala:62)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutions.withLock(ApplicationEvolutions.scala:100)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutions.runEvolutions(ApplicationEvolutions.scala:49)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutions.$anonfun$start$1(ApplicationEvolutions.scala:42)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutions.$anonfun$start$1$adapted(ApplicationEvolutions.scala:42)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.collection.immutable.List.foreach(List.scala:389)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutions.start(ApplicationEvolutions.scala:42)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutions.<init>(ApplicationEvolutions.scala:151)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutionsProvider.get$lzycompute(EvolutionsModule.scala:50)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutionsProvider.get(EvolutionsModule.scala:49)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutionsProvider.get(EvolutionsModule.scala:40)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.ProviderInternalFactory.provision(ProviderInternalFactory.java:81)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.BoundProviderFactory.provision(BoundProviderFactory.java:72)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.ProviderInternalFactory.circularGet(ProviderInternalFactory.java:61)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.BoundProviderFactory.get(BoundProviderFactory.java:62)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.ProviderToInternalFactoryAdapter$1.call(ProviderToInternalFactoryAdapter.java:46)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1092)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.SingletonScope$1.get(SingletonScope.java:194)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.InternalFactoryToProviderAdapter.get(InternalFactoryToProviderAdapter.java:41)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.InternalInjectorCreator$1.call(InternalInjectorCreator.java:205)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.InternalInjectorCreator$1.call(InternalInjectorCreator.java:199)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1085)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.InternalInjectorCreator.loadEagerSingletons(InternalInjectorCreator.java:199)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.InternalInjectorCreator.injectDynamically(InternalInjectorCreator.java:180)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:110)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.Guice.createInjector(Guice.java:99)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.Guice.createInjector(Guice.java:84)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.inject.guice.GuiceBuilder.injector(GuiceInjectorBuilder.scala:185)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.inject.guice.GuiceBuilder.injector(GuiceBuilder.java:221)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.inject.guice.GuiceApplicationBuilder.build(GuiceApplicationBuilder.java:156)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.test.Helpers.fakeApplication(Helpers.java:186)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.test.WithApplication.provideApplication(WithApplication.java:31)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.test.WithApplication.startPlay(WithApplication.java:61)[0m
+[0m[[0m[31merror[0m] [0m[0m    ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest [33mFunctionalTest[0m.[36mrenderTemplate[0m finished, took 5.084 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[31m1 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 5.086s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0m  Running TaskDef(BrowserTest, sbt.ForkMain$AnnotatedFingerscan@2ecbc329, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run started[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mTest [33mBrowserTest[0m.[36mtest[0m started[0m
+[0m[[0m[31merror[0m] [0m[0mTest [33mBrowserTest[0m.[31mtest[0m failed: play.api.db.evolutions.[31mInconsistentDatabase[0m: Database 'default' is in an inconsistent state![An evolution has not been applied properly. Please check the problem and resolve it manually before marking it as resolved.], took 0.534 sec[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.DatabaseEvolutions.$anonfun$checkEvolutionsState$3(EvolutionsApi.scala:285)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.DatabaseEvolutions.$anonfun$checkEvolutionsState$3$adapted(EvolutionsApi.scala:270)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.DatabaseEvolutions.executeQuery(EvolutionsApi.scala:317)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.DatabaseEvolutions.checkEvolutionsState(EvolutionsApi.scala:270)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.DatabaseEvolutions.evolve(EvolutionsApi.scala:239)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.DefaultEvolutionsApi.evolve(EvolutionsApi.scala:94)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutions.$anonfun$runEvolutions$1(ApplicationEvolutions.scala:62)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutions.withLock(ApplicationEvolutions.scala:100)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutions.runEvolutions(ApplicationEvolutions.scala:49)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutions.$anonfun$start$1(ApplicationEvolutions.scala:42)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutions.$anonfun$start$1$adapted(ApplicationEvolutions.scala:42)[0m
+[0m[[0m[31merror[0m] [0m[0m    at scala.collection.immutable.List.foreach(List.scala:389)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutions.start(ApplicationEvolutions.scala:42)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutions.<init>(ApplicationEvolutions.scala:151)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutionsProvider.get$lzycompute(EvolutionsModule.scala:50)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutionsProvider.get(EvolutionsModule.scala:49)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.db.evolutions.ApplicationEvolutionsProvider.get(EvolutionsModule.scala:40)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.ProviderInternalFactory.provision(ProviderInternalFactory.java:81)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.BoundProviderFactory.provision(BoundProviderFactory.java:72)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.ProviderInternalFactory.circularGet(ProviderInternalFactory.java:61)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.BoundProviderFactory.get(BoundProviderFactory.java:62)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.ProviderToInternalFactoryAdapter$1.call(ProviderToInternalFactoryAdapter.java:46)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1092)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.SingletonScope$1.get(SingletonScope.java:194)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.InternalFactoryToProviderAdapter.get(InternalFactoryToProviderAdapter.java:41)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.InternalInjectorCreator$1.call(InternalInjectorCreator.java:205)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.InternalInjectorCreator$1.call(InternalInjectorCreator.java:199)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1085)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.InternalInjectorCreator.loadEagerSingletons(InternalInjectorCreator.java:199)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.InternalInjectorCreator.injectDynamically(InternalInjectorCreator.java:180)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:110)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.Guice.createInjector(Guice.java:99)[0m
+[0m[[0m[31merror[0m] [0m[0m    at com.google.inject.Guice.createInjector(Guice.java:84)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.api.inject.guice.GuiceBuilder.injector(GuiceInjectorBuilder.scala:185)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.inject.guice.GuiceBuilder.injector(GuiceBuilder.java:221)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.inject.guice.GuiceApplicationBuilder.build(GuiceApplicationBuilder.java:156)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.test.Helpers.fakeApplication(Helpers.java:249)[0m
+[0m[[0m[31merror[0m] [0m[0m    at BrowserTest.provideApplication([35mBrowserTest.java[0m:[33m13[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m    at play.test.WithServer.startServer(WithServer.java:44)[0m
+[0m[[0m[31merror[0m] [0m[0m    ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mTest [33mBrowserTest[0m.[36mtest[0m finished, took 0.543 sec[0m
+[0m[[0m[0minfo[0m] [0m[0m[34mTest run finished: [0m[31m1 failed[0m[34m, [0m[34m0 ignored[0m[34m, 1 total, 0.544s[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0m    Produced 0 nested tasks and 1 events.[0m
+[0m[[0m[0mdebug[0m] [0m[0mSummary for JUnit not available.[0m
+[0m[[0m[31merror[0m] [0m[0mFailed: Total 5, Failed 2, Errors 0, Passed 3[0m
+[0m[[0m[0mdebug[0m] [0m[0mPassed tests:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	UnitTest[0m
+[0m[[0m[31merror[0m] [0m[0mFailed tests:[0m
+[0m[[0m[31merror[0m] [0m[0m	FunctionalTest[0m
+[0m[[0m[31merror[0m] [0m[0m	BrowserTest[0m
+[0m[[0m[31merror[0m] [0m[0m(test:[31mtest[0m) sbt.TestsFailedException: Tests unsuccessful[0m
