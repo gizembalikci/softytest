@@ -1,0 +1,17 @@
+@(userForm: Form[User])
+@import views.html.helper.CSRF
+<html>
+    <head>
+        <title>Edit User</title>
+    </head>
+    <body>
+        <h1>Edit User</h1>
+        @helper.form(action = CSRF(routes.UserController.update())){
+            @helper.inputText(userForm("id"))
+            @helper.inputText(userForm("email"))
+            @helper.inputText(userForm("passwordHash"))
+            @helper.inputText(userForm("passwordSalt"))
+            <input type="submit" value="Edit User">
+            }
+    </body>
+</html>

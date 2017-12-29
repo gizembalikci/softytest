@@ -1,0 +1,19 @@
+@(userForm: Form[User])
+@import views.html.helper.form
+@import views.html.helper.inputText
+@import views.html.helper.CSRF
+
+<html>
+    <head>
+        <title>Create Users</title>
+    </head>
+    <body>
+        <h1>Create Users</h1>
+        @helper.form(action = helper.CSRF(routes.UserController.save())){
+            @helper.inputText(userForm("email"))
+            @helper.inputText(userForm("passwordHash"))
+            @helper.inputText(userForm("passwordSalt"))
+            <input type="submit" value="Create User">
+            }
+    </body>
+</html>

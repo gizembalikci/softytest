@@ -7,6 +7,8 @@ import models.MultipleChoice;
 import play.db.ebean.EbeanConfig;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MultipleChoiceRepository {
 
@@ -21,7 +23,7 @@ public class MultipleChoiceRepository {
 
     public static Finder<Long, MultipleChoice> find = new Finder<>(MultipleChoice.class);
 
-    public void insertCodingQuestion(String questionContent, int category, int difficulty, int timeToSolve, String choices) {
+    public void insertMultipleChoice(String questionContent, int category, int difficulty, int timeToSolve, String choices) {
         MultipleChoice multipleChoice = new MultipleChoice();
         multipleChoice.questionContent = questionContent;
         multipleChoice.category = category;
@@ -30,5 +32,10 @@ public class MultipleChoiceRepository {
         multipleChoice.choices = choices;
 
         ebeanServer.insert(multipleChoice);
+    }
+
+    public String[] parseChoices(Long id){
+        String choiceString = find.byId(id).choices;
+        return choiceString.split(";");
     }
 }

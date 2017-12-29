@@ -26,4 +26,6 @@ public class User extends BaseModel{
     public String testStatistics;
     public String profilePic;
     public String bio;
+
+    public static Finder<Long, User> find = new Finder<>(User.class);
 }
