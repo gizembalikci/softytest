@@ -1,16 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0m/home/cagdas/softytestFinal/backend/app/views/users/login.scala.html:2:9: not found: value b3[0m
-[0m[[0m[31merror[0m] [0m[0m@import b3.vertical.fieldConstructor[0m
-[0m[[0m[31merror[0m] [0m[0m        ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/cagdas/softytestFinal/backend/app/views/users/login.scala.html:12:10: not found: value b3[0m
-[0m[[0m[31merror[0m] [0m[0m        @b3.form(routes.UserController.authenticate()) {[0m
-[0m[[0m[31merror[0m] [0m[0m         ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/cagdas/softytestFinal/backend/app/views/users/login.scala.html:13:14: not found: value b3[0m
-[0m[[0m[31merror[0m] [0m[0m            @b3.email( userForm("email"), '_label -> "Email", 'placeholder -> "example@mail.com" )[0m
-[0m[[0m[31merror[0m] [0m[0m             ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/cagdas/softytestFinal/backend/app/views/users/login.scala.html:14:14: not found: value b3[0m
-[0m[[0m[31merror[0m] [0m[0m            @b3.password( userForm("password"), '_label -> "Password", 'placeholder -> "Password" )[0m
-[0m[[0m[31merror[0m] [0m[0m             ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/cagdas/softytestFinal/backend/app/views/users/login.scala.html:15:14: not found: value b3[0m
-[0m[[0m[31merror[0m] [0m[0m            @b3.submit('class -> "btn btn-default"){ Log in }[0m
-[0m[[0m[31merror[0m] [0m[0m             ^[0m
-[0m[[0m[31merror[0m] [0m[0m5 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/cagdas/softytestFinal/backend/app/controllers/UserController.java:45:1: missing return statement[0m
+[0m[[0m[31merror[0m] [0m[0m    }[0m

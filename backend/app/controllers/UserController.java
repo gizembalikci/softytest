@@ -1,6 +1,7 @@
 package controllers;
 
 import models.User;
+import play.data.DynamicForm;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
@@ -10,34 +11,35 @@ import javax.inject.Inject;
 import java.util.List;
 
 import repository.UserRepository;
+import views.html.index;
 import views.html.users.*;
-
 public class UserController extends Controller{
 
     @Inject
     FormFactory formFactory;
 
-    public Result index(){
+    public Result showAll(){
         List<User> users = User.find.all();
         return ok(views.html.users.index.render(users));
     }
 
-    public Result create() {
+    public Result index() {
         Form<User> userForm = formFactory.form(User.class);
-        return ok(create.render(userForm));
+        return ok(index.render(userForm));
     }
 
     public Result save(){
-        Form<User> userForm = formFactory.form(User.class);
-        User user = userForm.bindFromRequest().get();
-        user.password = UserRepository.hashPassword(user.password);
+        DynamicForm requestData = formFactory.form().bindFromRequest(); //Model olmadan formdan veri çekebiliyosun böyle
+        String email = requestData.get("email");
+        if(User.find.byId(email) != null)
+            return notAcceptable("This email is already registered"); //TODO: bunun yerine js ile bi çözüm bulunması lazım :(
+        User user = new User();
+        String password = requestData.get("password");
+        user.email = email;
+        user.password = UserRepository.hashPassword(password);
         user.save();
-        return redirect(routes.UserController.index());
-    }
 
-    public Result login() {
-        Form<User> userForm = formFactory.form(User.class);
-        return ok(login.render(userForm));
+        return redirect(routes.UserController.show(user.email));
     }
 
     public Result authenticate(){

@@ -4,7 +4,7 @@
 		module="backend_2.12"
 		revision="1.0.0-SNAPSHOT"
 		status="integration"
-		publication="20171231004855"
+		publication="20171231033655"
 	>
 		<description>
 		backend
@@ -58,5 +58,6 @@
 		<dependency org="org.assertj" name="assertj-core" rev="3.6.2" conf="test->default(compile)"/>
 		<dependency org="org.mockito" name="mockito-core" rev="2.1.0" conf="test->default(compile)"/>
 		<dependency org="com.adrianhurt" name="play-bootstrap_2.12" rev="1.2-P26-B4" conf="compile->default(compile)"/>
+		<dependency org="org.webjars.bower" name="bootstrap-sass" rev="3.3.6" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

@@ -23,3 +23,5 @@ resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repos
 libraryDependencies ++= Seq(
   "com.adrianhurt" %% "play-bootstrap" % "1.2-P26-B4"
 )
+
+libraryDependencies += "org.webjars.bower" % "bootstrap-sass" % "3.3.6"

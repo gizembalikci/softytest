@@ -25,25 +25,25 @@ import play.core.j.PlayFormsMagicForJava._
 object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[List[User],play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(users: List[User]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*2.2*/(users: List[User]):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*1.21*/("""
+Seq[Any](format.raw/*2.21*/("""
 
-"""),format.raw/*3.1*/("""<html>
+"""),format.raw/*4.1*/("""<html>
     <head>
         <title>All Users</title>
     </head>
     <body>
         <h1>All Users</h1>
 
-        """),_display_(/*10.10*/for(user <- users) yield /*10.28*/{_display_(Seq[Any](format.raw/*10.29*/("""
-            """),format.raw/*11.13*/("""<a href=""""),_display_(/*11.23*/routes/*11.29*/.UserController.show(user.email)),format.raw/*11.61*/("""">"""),_display_(/*11.64*/user/*11.68*/.email),format.raw/*11.74*/("""</a>
+        """),_display_(/*11.10*/for(user <- users) yield /*11.28*/{_display_(Seq[Any](format.raw/*11.29*/("""
+            """),format.raw/*12.13*/("""<a href=""""),_display_(/*12.23*/routes/*12.29*/.UserController.show(user.email)),format.raw/*12.61*/("""">"""),_display_(/*12.64*/user/*12.68*/.email),format.raw/*12.74*/("""</a>
             <p></p>
-        """)))}),format.raw/*13.10*/("""
-    """),format.raw/*14.5*/("""</body>
+        """)))}),format.raw/*14.10*/("""
+    """),format.raw/*15.5*/("""</body>
 </html>"""))
       }
     }
@@ -60,11 +60,11 @@ Seq[Any](format.raw/*1.21*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Dec 31 01:07:33 GMT 2017
+                  DATE: Sun Dec 31 04:33:01 GMT 2017
                   SOURCE: /home/cagdas/softytestFinal/backend/app/views/users/index.scala.html
-                  HASH: 1ac9199b3b86ebd4d8f92991a948144fcb2c3d0d
-                  MATRIX: 958->1|1072->20|1100->22|1238->133|1272->151|1311->152|1352->165|1389->175|1404->181|1457->213|1487->216|1500->220|1527->226|1592->260|1624->265
-                  LINES: 28->1|33->1|35->3|42->10|42->10|42->10|43->11|43->11|43->11|43->11|43->11|43->11|43->11|45->13|46->14
+                  HASH: c5129bd693482984bf45e6237921e8514dc804ef
+                  MATRIX: 958->2|1072->21|1100->23|1238->134|1272->152|1311->153|1352->166|1389->176|1404->182|1457->214|1487->217|1500->221|1527->227|1592->261|1624->266
+                  LINES: 28->2|33->2|35->4|42->11|42->11|42->11|43->12|43->12|43->12|43->12|43->12|43->12|43->12|45->14|46->15
                   -- GENERATED --
               */
           

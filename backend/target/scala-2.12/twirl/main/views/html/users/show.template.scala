@@ -37,8 +37,8 @@ Seq[Any](format.raw/*1.14*/("""
         <title>"""),_display_(/*5.17*/user/*5.21*/.email),format.raw/*5.27*/("""</title>
     </head>
     <body>
-        <h2>"""),_display_(/*8.14*/user/*8.18*/.email),format.raw/*8.24*/("""</h2>
-        <p>"""),_display_(/*9.13*/user/*9.17*/.password),format.raw/*9.26*/("""</p>
+        <h2>Email: """),_display_(/*8.21*/user/*8.25*/.email),format.raw/*8.31*/("""</h2>
+        <p>PasswordHash: """),_display_(/*9.27*/user/*9.31*/.password),format.raw/*9.40*/("""</p>
     </body>
 </html>"""))
       }
@@ -56,10 +56,10 @@ Seq[Any](format.raw/*1.14*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Dec 31 01:51:51 GMT 2017
+                  DATE: Sun Dec 31 04:01:41 GMT 2017
                   SOURCE: /home/cagdas/softytestFinal/backend/app/views/users/show.scala.html
-                  HASH: 25b611ddea8f7c1a2f16c2730657359755072bb3
-                  MATRIX: 951->1|1058->13|1086->15|1146->49|1158->53|1184->59|1255->104|1267->108|1293->114|1337->132|1349->136|1378->145
+                  HASH: 18c1146401dad3017b9a0c8a75dfaf40645353c1
+                  MATRIX: 951->1|1058->13|1086->15|1146->49|1158->53|1184->59|1262->111|1274->115|1300->121|1358->153|1370->157|1399->166
                   LINES: 28->1|33->1|35->3|37->5|37->5|37->5|40->8|40->8|40->8|41->9|41->9|41->9
                   -- GENERATED --
               */
