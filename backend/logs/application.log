@@ -1,8 +1,8 @@
-2017-12-29 22:49:46,683 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
-2017-12-29 22:49:46,774 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-7 - Database [default] connected at jdbc:h2:file:./database
-2017-12-29 22:49:48,172 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-7 - ApplicationTimer demo: Starting application at 2017-12-29T22:49:48.172Z
-2017-12-29 22:49:49,146 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-7 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
-2017-12-29 22:49:49,738 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-7 - Using the following cache for assets configuration:
+2017-12-31 02:38:16,838 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-9 - Creating Pool for datasource 'default'
+2017-12-31 02:38:17,459 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-9 - Database [default] connected at jdbc:h2:file:./database
+2017-12-31 02:38:19,649 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-9 - ApplicationTimer demo: Starting application at 2017-12-31T02:38:19.648Z
+2017-12-31 02:38:21,481 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-9 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-12-31 02:38:21,717 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-9 - Using the following cache for assets configuration:
 	 enabledCaching = false
 	 enabledCacheControl = false
 	 defaultCacheControl = public, max-age=3600
@@ -10,10 +10,69 @@
 	 configuredCacheControl:
 
 
-2017-12-29 22:49:49,809 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-7 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+2017-12-31 02:38:21,854 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-9 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
 
     play.filters.csrf.CSRFFilter
     play.filters.headers.SecurityHeadersFilter
     play.filters.hosts.AllowedHostsFilter
 
-2017-12-29 22:49:49,815 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-7 - Application started (Dev)
+2017-12-31 02:38:21,866 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-9 - Application started (Dev)
+2017-12-31 02:39:28,010 [INFO] from application in application-akka.actor.default-dispatcher-3 - ApplicationTimer demo: Stopping application at 2017-12-31T02:39:28.010Z after 69s.
+2017-12-31 02:39:28,014 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
+2017-12-31 02:39:28,356 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-10 - Creating Pool for datasource 'default'
+2017-12-31 02:39:28,386 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-10 - Database [default] connected at jdbc:h2:file:./database
+2017-12-31 02:39:28,484 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-10 - ApplicationTimer demo: Starting application at 2017-12-31T02:39:28.483Z
+2017-12-31 02:39:28,990 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-10 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-12-31 02:39:29,003 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-10 - Using the following cache for assets configuration:
+	 enabledCaching = false
+	 enabledCacheControl = false
+	 defaultCacheControl = public, max-age=3600
+	 aggressiveCacheControl = public, max-age=31536000, immutable
+	 configuredCacheControl:
+
+
+2017-12-31 02:39:29,016 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-10 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+
+2017-12-31 02:39:29,017 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-10 - Application started (Dev)
+2017-12-31 02:39:43,197 [WARN] from play.filters.CSRF in play-dev-mode-akka.actor.default-dispatcher-2 - [CSRF] Check failed because no or invalid token found in body for /users/login/
+2017-12-31 02:39:43,204 [WARN] from play.filters.CSRF in play-dev-mode-akka.actor.default-dispatcher-2 - [CSRF] Check failed with NoTokenInBody for /users/login/
+2017-12-31 02:41:39,566 [INFO] from application in application-akka.actor.default-dispatcher-5 - ApplicationTimer demo: Stopping application at 2017-12-31T02:41:39.566Z after 131s.
+2017-12-31 02:41:39,567 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
+2017-12-31 02:41:39,890 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-12 - Creating Pool for datasource 'default'
+2017-12-31 02:41:39,910 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-12 - Database [default] connected at jdbc:h2:file:./database
+2017-12-31 02:41:40,019 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-12 - ApplicationTimer demo: Starting application at 2017-12-31T02:41:40.019Z
+2017-12-31 02:41:40,439 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-12 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-12-31 02:41:40,453 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-12 - Using the following cache for assets configuration:
+	 enabledCaching = false
+	 enabledCacheControl = false
+	 defaultCacheControl = public, max-age=3600
+	 aggressiveCacheControl = public, max-age=31536000, immutable
+	 configuredCacheControl:
+
+
+2017-12-31 02:41:40,467 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-12 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+
+2017-12-31 02:41:40,472 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-12 - Application started (Dev)
+2017-12-31 02:43:36,142 [INFO] from application in application-akka.actor.default-dispatcher-6 - ApplicationTimer demo: Stopping application at 2017-12-31T02:43:36.141Z after 116s.
+2017-12-31 02:43:36,142 [INFO] from application in application-akka.actor.default-dispatcher-6 - Shutting down connection pool.
+2017-12-31 02:43:36,453 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-12 - Creating Pool for datasource 'default'
+2017-12-31 02:43:36,476 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-12 - Database [default] connected at jdbc:h2:file:./database
+2017-12-31 02:43:36,575 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-12 - ApplicationTimer demo: Starting application at 2017-12-31T02:43:36.574Z
+2017-12-31 02:43:36,831 [WARN] from org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator in play-dev-mode-akka.actor.default-dispatcher-12 - HV000184: ParameterMessageInterpolator has been chosen, EL interpolation will not be supported
+2017-12-31 02:43:36,844 [WARN] from application in play-dev-mode-akka.actor.default-dispatcher-12 - Using the following cache for assets configuration:
+	 enabledCaching = false
+	 enabledCacheControl = false
+	 defaultCacheControl = public, max-age=3600
+	 aggressiveCacheControl = public, max-age=31536000, immutable
+	 configuredCacheControl:
+
+
+2017-12-31 02:43:36,853 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-12 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+
+2017-12-31 02:43:36,856 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-12 - Application started (Dev)

@@ -9,7 +9,7 @@
         @helper.form(action = CSRF(routes.UserController.update())){
             @helper.inputText(userForm("id"))
             @helper.inputText(userForm("email"))
-            @helper.inputText(userForm("passwordHash"))
+            @helper.inputText(userForm("password"))
             @helper.inputText(userForm("passwordSalt"))
             <input type="submit" value="Edit User">
             }

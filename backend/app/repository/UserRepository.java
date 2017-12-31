@@ -6,12 +6,9 @@ import play.db.ebean.EbeanConfig;
 
 import javax.inject.Inject;
 import java.security.NoSuchAlgorithmException;
-import java.util.Optional;
-import java.util.concurrent.CompletionStage;
 
 import static java.util.concurrent.CompletableFuture.supplyAsync;
 import java.security.MessageDigest;
-import java.util.UUID;
 
 public class UserRepository {
     private final EbeanServer ebeanServer;
@@ -23,51 +20,55 @@ public class UserRepository {
         this.executionContext = executionContext;
     }
 
-    public static Finder<Long, User> find = new Finder<>(User.class);
+    public static Finder<String, User> find = new Finder<>(User.class);
 
-    public void createUser(String email, String password){
-        User user = new User();
-        user.email = email;
-
+    public static String hashPassword(String password){
+        String hashedPassword = "";
         try {
             MessageDigest passwordHash = MessageDigest.getInstance("SHA-256");
             passwordHash.update(password.getBytes());
-            user.passwordHash = new String(passwordHash.digest());
-            String passwordSalt = UUID.randomUUID().toString().replace("-", "");
-            user.passwordSalt = passwordSalt;
+            hashedPassword = new String(passwordHash.digest());
         }
         catch (NoSuchAlgorithmException e){
             System.out.println("No such algorithm");
         }
 
+        return hashedPassword;
+    }
+    public void createUser(String email, String password){
+        User user = new User();
+        user.email = email;
+
+
+
         ebeanServer.insert(user);
     }
 
-    public String authenticate(Long id) {
+    public String authenticate(String id) {
         User user = find.byId(id);
-        return user.passwordHash+user.passwordSalt;
+        return user.password;
     }
 
-    public void updateName(Long id, String name) {
+    public void updateName(String id, String name) {
         User user = find.byId(id);
         user.name = name;
         ebeanServer.save(user);
     }
 
     //String testStatistics, String profilePic, String bio
-    public void updateStatistics(Long id, String testStatistics){
+    public void updateStatistics(String id, String testStatistics){
         User user = find.byId(id);
         user.testStatistics = testStatistics;
         ebeanServer.save(user);
     }
 
-    public void updatePP(Long id, String profilePic){
+    public void updatePP(String id, String profilePic){
         User user = find.byId(id);
         user.profilePic = profilePic;
         ebeanServer.save(user);
     }
 
-    public void updateBio(Long id, String bio){
+    public void updateBio(String id, String bio){
         User user = find.byId(id);
         user.bio = bio;
         ebeanServer.save(user);

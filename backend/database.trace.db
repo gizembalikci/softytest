@@ -1,0 +1,9 @@
+2017-12-29 22:17:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+select t0.id, t0.email, t0.password_hash, t0.password_salt, t0.name, t0.test_statistics, t0.profile_pic, t0.bio from user t0 [42102-194]
+2017-12-29 22:18:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+select t0.id, t0.email, t0.password_hash, t0.password_salt, t0.name, t0.test_statistics, t0.profile_pic, t0.bio from user t0 [42102-194]
+2017-12-29 22:21:41 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "PLAY_EVOLUTIONS" not found; SQL statement:
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%' [42102-194]

@@ -10,22 +10,20 @@ import play.data.validation.*;
 
 @Entity
 @Table
-public class User extends BaseModel{
+public class User extends Model{
     private static final long serialVersionUID = 1L;
     @Constraints.Required
     @Constraints.Email
+    @Id
     public String email;
 
     @Constraints.Required
-    public String passwordHash;
-
-    @Constraints.Required
-    public String passwordSalt;
+    public String password;
 
     public String name;
     public String testStatistics;
     public String profilePic;
     public String bio;
 
-    public static Finder<Long, User> find = new Finder<>(User.class);
+    public static Finder<String, User> find = new Finder<>(User.class);
 }

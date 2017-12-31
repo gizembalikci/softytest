@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cagdas/softytestFinal/backend/conf/routes
-// @DATE:Fri Dec 29 21:23:33 GMT 2017
+// @DATE:Sun Dec 31 01:27:11 GMT 2017
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -12,7 +12,7 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers.javascript {
 
-  // @LINE:21
+  // @LINE:22
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -20,7 +20,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:21
+    // @LINE:22
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -60,12 +60,32 @@ package controllers.javascript {
     }
 
   
+    // @LINE:18
+    def destroy: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UserController.destroy",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/delete/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
     // @LINE:14
     def show: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UserController.show",
       """
         function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:15
+    def edit: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UserController.edit",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/edit/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("id", id0))})
         }
       """
     )
@@ -76,26 +96,6 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/create"})
-        }
-      """
-    )
-  
-    // @LINE:15
-    def edit: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.UserController.edit",
-      """
-        function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/edit/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
-        }
-      """
-    )
-  
-    // @LINE:18
-    def destroy: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.UserController.destroy",
-      """
-        function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/delete/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
         }
       """
     )
@@ -120,12 +120,32 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:20
+    def authenticate: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UserController.authenticate",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "users/login/"})
+        }
+      """
+    )
+  
     // @LINE:12
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UserController.index",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users"})
+        }
+      """
+    )
+  
+    // @LINE:19
+    def login: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UserController.login",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "users/login/"})
         }
       """
     )

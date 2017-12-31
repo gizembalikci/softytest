@@ -8,7 +8,8 @@
         <h1>All Users</h1>
 
         @for(user <- users){
-            <p>@user.email</p>
+            <a href="@routes.UserController.show(user.email)">@user.email</a>
+            <p></p>
         }
     </body>
 </html>

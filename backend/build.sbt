@@ -16,3 +16,10 @@ libraryDependencies += "org.mockito" % "mockito-core" % "2.1.0" % Test
 testOptions in Test += Tests.Argument(TestFrameworks.JUnit, "-a", "-v")
 
 resolvers += Resolver.sbtPluginRepo("releases")
+
+// Resolver is needed only for SNAPSHOT versions
+resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
+
+libraryDependencies ++= Seq(
+  "com.adrianhurt" %% "play-bootstrap" % "1.2-P26-B4"
+)

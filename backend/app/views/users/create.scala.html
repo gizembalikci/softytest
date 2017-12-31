@@ -11,8 +11,7 @@
         <h1>Create Users</h1>
         @helper.form(action = helper.CSRF(routes.UserController.save())){
             @helper.inputText(userForm("email"))
-            @helper.inputText(userForm("passwordHash"))
-            @helper.inputText(userForm("passwordSalt"))
+            @helper.inputText(userForm("password"))
             <input type="submit" value="Create User">
             }
     </body>
