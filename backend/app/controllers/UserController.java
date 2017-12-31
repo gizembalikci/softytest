@@ -10,9 +10,12 @@ import play.mvc.Result;
 import javax.inject.Inject;
 import java.util.List;
 
+import play.mvc.Security;
 import repository.UserRepository;
+import services.StoreSecured;
 import views.html.index;
 import views.html.users.*;
+
 public class UserController extends Controller{
 
     @Inject
@@ -25,7 +28,7 @@ public class UserController extends Controller{
 
     public Result index() {
         Form<User> userForm = formFactory.form(User.class);
-        return ok(index.render(userForm));
+        return ok(index.render(userForm, flash()));
     }
 
     public Result save(){
@@ -50,6 +53,8 @@ public class UserController extends Controller{
             return notFound("User not found");
         }
         else if(dbUser.password.equals(UserRepository.hashPassword(user.password))){
+            session().put("user", dbUser.email);
+            flash().put("loggedin", "1");
             return redirect(routes.UserController.show(user.email));
         }
         else {
@@ -81,10 +86,11 @@ public class UserController extends Controller{
         return redirect(routes.UserController.index());
     }
 
+    @Security.Authenticated(StoreSecured.class)
     public Result show(String id){
         User user = User.find.byId(id);
-        if(user == null){
-            return notFound("User not found");
+        if(user == null || !id.equals(session().get("user"))){
+            return unauthorized("You're not authorized to see this page");
         }
         return ok(show.render(user));
     }
