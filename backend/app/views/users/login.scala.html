@@ -9,7 +9,7 @@
     </head>
     <body>
         <h1>Login Users</h1>
-        @b4.form(helper.CSRF(routes.UserController.authenticate())) {
+        @b4.form(routes.UserController.authenticate()) {
             @b4.email( userForm("email"), '_label -> "Email", 'placeholder -> "example@mail.com" , 'class->"form-control")
             @b4.password( userForm("password"), '_label -> "Password", 'placeholder -> "Password" , 'class->"form-control")
             @b4.submit('class -> "btn btn-primary"){ Log in }
