@@ -50,16 +50,15 @@ public class UserController extends Controller{
         User user = userForm.bindFromRequest().get();
         User dbUser = User.find.byId(user.email);
         if(dbUser == null){
-            return notFound("User not found");
+            return notFound("User not found or wrong password");
         }
         else if(dbUser.password.equals(UserRepository.hashPassword(user.password))){
             session().put("user", dbUser.email);
             flash().put("loggedin", "1");
             return redirect(routes.UserController.show(user.email));
         }
-        else {
-            return notFound("Wrong password");
-        }
+        else
+            return badRequest();
     }
 
     public Result edit(String id){
