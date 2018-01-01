@@ -6,11 +6,13 @@
     </head>
     <body>
         <h1>Edit User</h1>
-        @helper.form(action = CSRF(routes.UserController.update())){
-            @helper.inputText(userForm("id"))
+        @helper.form(action = routes.UserController.update()){
             @helper.inputText(userForm("email"))
             @helper.inputText(userForm("password"))
-            @helper.inputText(userForm("passwordSalt"))
+            @helper.inputText(userForm("name"))
+            @helper.inputText(userForm("profilePic"))
+            @helper.inputText(userForm("statistics"))
+            @helper.inputText(userForm("bio"))
             <input type="submit" value="Edit User">
             }
     </body>

@@ -1,6 +1,9 @@
 package controllers;
 
+import forms.LoginForm;
+import models.Statistics;
 import models.User;
+import play.Logger;
 import play.data.DynamicForm;
 import play.data.Form;
 import play.data.FormFactory;
@@ -13,6 +16,7 @@ import java.util.List;
 import play.mvc.Security;
 import repository.UserRepository;
 import services.StoreSecured;
+import views.html.*;
 import views.html.index;
 import views.html.users.*;
 
@@ -40,13 +44,24 @@ public class UserController extends Controller{
         String password = requestData.get("password");
         user.email = email;
         user.password = UserRepository.hashPassword(password);
+        user.name = email.split("@")[0];
+        Logger.debug(user.name);
+        //Correct and incorrect asnwers each category seperated by semicolon;
+        user.profilePic = "ppexample.jpg";
         user.save();
+        Statistics statistics = new Statistics();
+        statistics.user = user;
+        statistics.save();
+        List<Statistics> statisticsList = user.getTestStatistics();
+        statisticsList.add(statistics);
+        user.setTestStatistics(statisticsList);
+        user.update();
 
-        return redirect(routes.UserController.show(user.email));
+        return redirect(routes.UserController.index());
     }
 
     public Result authenticate(){
-        Form<User> userForm = formFactory.form(User.class);
+        Form<User> userForm = formFactory.form(User.class).bindFromRequest("email", "password");
         User user = userForm.bindFromRequest().get();
         User dbUser = User.find.byId(user.email);
         if(dbUser == null){
@@ -55,7 +70,7 @@ public class UserController extends Controller{
         else if(dbUser.password.equals(UserRepository.hashPassword(user.password))){
             session().put("user", dbUser.email);
             flash().put("loggedin", "1");
-            return redirect(routes.UserController.show(user.email));
+            return redirect(routes.UserController.profile());
         }
         else
             return badRequest();
@@ -71,16 +86,17 @@ public class UserController extends Controller{
     }
 
     public Result update(){
-        User user = formFactory.form(User.class).bindFromRequest().get();
-        User oldUser = User.find.byId(user.email);
+        DynamicForm requestData = formFactory.form().bindFromRequest();
+        String email = requestData.get("email");
+        User oldUser = User.find.byId(email);
         if(oldUser == null){
             return notFound("User not found");
         }
-        oldUser.email = user.email;
-        oldUser.password = user.password;
-        oldUser.bio = user.bio;
-        oldUser.profilePic = user.profilePic;
-        oldUser.name = user.name;
+        oldUser.setEmail(email);
+        oldUser.setPassword(requestData.get("password"));
+        oldUser.setBio(requestData.get("bio"));
+        oldUser.setProfilePic(requestData.get("profilePic"));
+        oldUser.setName(requestData.get("name"));
         oldUser.update();
         return redirect(routes.UserController.index());
     }
@@ -92,6 +108,21 @@ public class UserController extends Controller{
             return unauthorized("You're not authorized to see this page");
         }
         return ok(show.render(user));
+    }
+
+    @Security.Authenticated(StoreSecured.class)
+    public Result profile(){
+        String email = session().get("user");
+        User user = User.find.byId(email);
+        if(user != null)
+            return ok(profilePage.render(user));
+        return badRequest();
+    }
+
+    @Security.Authenticated(StoreSecured.class)
+    public Result logout(){
+        session().remove("user");
+        return redirect(routes.UserController.index());
     }
 
     public Result destroy(String id){

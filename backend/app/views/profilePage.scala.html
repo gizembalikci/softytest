@@ -1,0 +1,69 @@
+@(user: models.User)
+
+@layout("Your Profile"){
+        <div class="container">
+            <div class="py-5">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <img src="@routes.Assets.at(user.profilePic)" width="200px" class="float-left rounded-circle m-0">
+                        <p class="text-center px-4 my-5">@user.bio<a class="btn btn-primary text-info border border-info p-2 text-right"
+                        href="" data-toggle="">Edit Profile </a>
+                    </div>
+                </div>
+            </div>
+            <div class="py-1">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Total Answered</th>
+                                    <th>Correct</th>
+                                    <th>Incorrect</th>
+                                    <th>Success Rate</th>
+                                    <th>Rank</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Category1</td>
+                                    <td>50</td>
+                                    <td>30</td>
+                                    <td>2O</td>
+                                    <td>%60</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>Category2</td>
+                                    <td>30</td>
+                                    <td>25</td>
+                                    <td>5</td>
+                                    <td>%75</td>
+                                    <td>25</td>
+                                </tr>
+                                <tr>
+                                    <td>Category3</td>
+                                    <td>60</td>
+                                    <td>20</td>
+                                    <td>40</td>
+                                    <td>%33</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>Overall</td>
+                                    <td>140</td>
+                                    <td>75</td>
+                                    <td>65</td>
+                                    <td>%54</td>
+                                    <td>12</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <a class="btn btn-primary text-info border border-info p-2 text-left" href="categories.html" data-toggle="">Start New Test </a>
+                <a type="submit" class="btn btn-primary text-info border border-info p-2 text-left" href="@routes.UserController.logout()" data-toggle="">Logout</a>
+            </div>
+        </div>
+}

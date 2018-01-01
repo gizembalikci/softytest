@@ -55,12 +55,12 @@ public class UserRepository {
         ebeanServer.save(user);
     }
 
-    //String testStatistics, String profilePic, String bio
-    public void updateStatistics(String id, String testStatistics){
-        User user = find.byId(id);
-        user.testStatistics = testStatistics;
-        ebeanServer.save(user);
-    }
+//    //String testStatistics, String profilePic, String bio
+//    public void updateStatistics(String id, String testStatistics){
+//        User user = find.byId(id);
+//        user.testStatistics = testStatistics;
+//        ebeanServer.save(user);
+//    }
 
     public void updatePP(String id, String profilePic){
         User user = find.byId(id);

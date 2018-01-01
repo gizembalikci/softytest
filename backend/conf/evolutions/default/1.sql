@@ -25,22 +25,38 @@ create table multiple_choice (
   constraint pk_multiple_choice primary key (id)
 );
 
+create table statistics (
+  id                            bıgınt auto_increment not null,
+  user_email                    varchar(255) not null,
+  correct                       integer default 0 not null,
+  wrong                         integer default 0 not null,
+  category                      integer default 0 not null,
+  constraint pk_statistics primary key (id)
+);
+
 create table user (
   email                         varchar(255) not null,
   password                      varchar(255),
   name                          varchar(255),
-  test_statistics               varchar(255),
   profile_pic                   varchar(255),
   bio                           varchar(255),
   constraint pk_user primary key (email)
 );
 
+alter table statistics add constraint fk_statistics_user_email foreign key (user_email) references user (email) on delete restrict on update restrict;
+create index ix_statistics_user_email on statistics (user_email);
+
 
 # --- !Downs
+
+alter table statistics drop constraint if exists fk_statistics_user_email;
+drop index if exists ix_statistics_user_email;
 
 drop table if exists coding_question;
 
 drop table if exists multiple_choice;
+
+drop table if exists statistics;
 
 drop table if exists user;
 

@@ -7,5 +7,12 @@
     <body>
         <h2>Email: @user.email</h2>
         <p>PasswordHash: @user.password</p>
+        <p>name: @user.name</p>
+        <p>testStatistics:</p>
+        @for(statistic <- user.testStatistics){
+            <p>@statistic.user.email</p>
+        }
+        <p>profilePic: @user.profilePic</p>
+        <p>bio: @user.bio</p>
     </body>
 </html>
