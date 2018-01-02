@@ -7,6 +7,8 @@ GET     /                           controllers.UserController.index()
 POST    /                           controllers.UserController.save()
 POST    /users/login/               controllers.UserController.authenticate()
 GET     /profile                    controllers.UserController.profile()
+GET     /profile/edit               controllers.UserController.edit()
+POST    /profile/edit               controllers.UserController.update()
 GET     /logout                     controllers.UserController.logout()
 
 # An example controller showing how to use dependency injection
@@ -18,8 +20,6 @@ GET     /message                    controllers.AsyncController.message
 
 GET     /users                      controllers.UserController.showAll()
 GET     /users/:id                  controllers.UserController.show(id: String)
-GET     /users/edit/:id             controllers.UserController.edit(id: String)
-POST    /users/edit                 controllers.UserController.update()
 
 GET     /users/delete/:id           controllers.UserController.destroy(id: String)
 # Map static resources from the /public folder to the /assets URL path

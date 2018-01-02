@@ -1,5 +1,6 @@
 package models;
 
+import io.ebean.Finder;
 import io.ebean.Model;
 
 import javax.persistence.*;
@@ -19,4 +20,6 @@ public class Statistics  extends BaseModel{
 
     @Column(columnDefinition = "integer default 0")
     public int category;
+
+    public static Finder<Long, Statistics> find = new Finder<>(Statistics.class);
 }
