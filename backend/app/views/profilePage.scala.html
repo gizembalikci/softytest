@@ -5,7 +5,8 @@
             <div class="py-5">
                 <div class="row">
                     <div class="col-md-12 text-right">
-                        <img src="@routes.Assets.at(user.profilePic)" width="200px" class="float-left rounded-circle m-0">
+
+                        <img src="@routes.Assets.at("ppexample.jpg")" width="200px" class="float-left rounded-circle m-0">
                         <p class="text-center px-4 my-5">@user.bio</p><a class="btn btn-primary text-info border border-info p-2 text-right"
                         href="@routes.UserController.update()" data-toggle="">Edit Profile </a>
                     </div>
@@ -38,17 +39,17 @@
                                     }
                                 <tr>
                                     <td>Overall</td>
-                                    <td>140</td>
-                                    <td>75</td>
-                                    <td>65</td>
-                                    <td>%54</td>
-                                    <td>12</td>
+                                    <td>@TestController.overallTotal(user.testStatistics)</td>
+                                    <td>@TestController.overallCorrect(user.testStatistics)</td>
+                                    <td>@TestController.overallWrong(user.testStatistics)</td>
+                                    <td>%@TestController.overallSuccessRate(user.testStatistics)</td>
+                                    <td>totalRank</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <a class="btn btn-primary text-info border border-info p-2 text-left" href="categories.html" data-toggle="">Start New Test </a>
+                <a class="btn btn-primary text-info border border-info p-2 text-left" href="@routes.TestController.categories()" data-toggle="">Start New Test </a>
                 <a type="submit" class="btn btn-primary text-info border border-info p-2 text-left" href="@routes.UserController.logout()" data-toggle="">Logout</a>
             </div>
         </div>

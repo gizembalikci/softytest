@@ -62,12 +62,6 @@ public class UserRepository {
 //        ebeanServer.save(user);
 //    }
 
-    public void updatePP(String id, String profilePic){
-        User user = find.byId(id);
-        user.profilePic = profilePic;
-        ebeanServer.save(user);
-    }
-
     public void updateBio(String id, String bio){
         User user = find.byId(id);
         user.bio = bio;

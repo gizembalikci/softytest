@@ -1,5 +1,9 @@
 package controllers;
 
+import akka.http.javadsl.model.MediaType;
+import io.ebeaninternal.server.type.ScalarTypeJsonMap;
+
+import models.ProfilePic;
 import models.Statistics;
 import models.User;
 import play.Logger;
@@ -8,9 +12,21 @@ import play.data.Form;
 import play.data.FormFactory;
 import play.db.ebean.Transactional;
 import play.mvc.Controller;
+import play.mvc.Http;
 import play.mvc.Result;
+import java.io.File;
 
+import javax.imageio.ImageIO;
 import javax.inject.Inject;
+import javax.persistence.Lob;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.awt.image.WritableRaster;
+import java.io.File;
+
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.sql.Blob;
 import java.util.List;
 import java.util.Random;
 
@@ -33,10 +49,9 @@ public class UserController extends Controller{
 
     public Result index() {
         Form<User> userForm = formFactory.form(User.class);
-        if(session().get("user") == null)
+
             return ok(index.render(userForm, flash()));
-        else
-            return redirect(routes.UserController.profile());
+
     }
 
     @Transactional
@@ -52,8 +67,15 @@ public class UserController extends Controller{
         user.password = UserRepository.hashPassword(password);
         user.name = email.split("@")[0];
         Logger.debug(user.name);
-        //Correct and incorrect asnwers each category seperated by semicolon;
-        user.profilePic = "ppexample.jpg";
+        ProfilePic profilePic = new ProfilePic();
+        try {
+            profilePic.pic = extractBytes("public/images/ppexample.jpg");
+            profilePic.save();
+        }
+        catch (IOException e){
+            System.out.println("Something went wrong");
+        }
+        user.profilePic = profilePic;
         user.save();
         for(int i = 0; i < 3; i++) {
             Statistics statistics = new Statistics();
@@ -68,6 +90,7 @@ public class UserController extends Controller{
             user.setTestStatistics(statisticsList);
             user.update();
         }
+        //TODO: email registered error js view yazılacak.
         return redirect(routes.UserController.edit());
     }
 
@@ -87,6 +110,7 @@ public class UserController extends Controller{
             return badRequest();
     }
 
+    @Security.Authenticated(StoreSecured.class)
     public Result edit(){
         User user = User.find.byId(session().get("user"));
         return ok(editProfile.render(user));
@@ -114,7 +138,14 @@ public class UserController extends Controller{
         String name = requestData.get("name");
         if(name != "")
             oldUser.setName(name);
-        oldUser.update();
+//        byte[] pp = requestData.get("photo").getBytes();
+//        if(pp.length > 1){
+//            ProfilePic profilePic = new ProfilePic();
+//            profilePic.pic = pp;
+//            profilePic.save();
+//            oldUser.setProfilePic(profilePic);
+//        }
+//        oldUser.update();
         return redirect(routes.UserController.profile());
     }
 //
@@ -155,4 +186,29 @@ public class UserController extends Controller{
         user.delete();
         return redirect(routes.UserController.index());
     }
+
+    public static void uploadPicture(ProfilePic profilePic){
+        profilePic.save();
+    }
+
+    public Result getPP(){
+        User user = User.find.byId(session().get("user"));
+        ProfilePic profilePic = ProfilePic.find.byId(user.profilePic.id);
+        return ok(profilePic.pic).as("image/jpeg");
+    }
+
+
+
+    public byte[] extractBytes (String ImageName) throws IOException {
+        // open image
+        File imgPath = new File(ImageName);
+        BufferedImage bufferedImage = ImageIO.read(imgPath);
+
+        // get DataBufferBytes from Raster
+        WritableRaster raster = bufferedImage .getRaster();
+        DataBufferByte data   = (DataBufferByte) raster.getDataBuffer();
+
+        return ( data.getData() );
+    }
+
 }

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cagdas/softytestFinal/backend/conf/routes
-// @DATE:Sun Dec 31 04:09:36 GMT 2017
+// @DATE:Fri Jan 05 13:11:20 GMT 2018
 
 package router
 
@@ -16,31 +16,35 @@ import _root_.play.libs.F
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:6
-  UserController_0: controllers.UserController,
-  // @LINE:10
-  CountController_3: controllers.CountController,
-  // @LINE:12
-  AsyncController_2: controllers.AsyncController,
-  // @LINE:21
-  Assets_1: controllers.Assets,
+  UserController_2: controllers.UserController,
+  // @LINE:14
+  TestController_3: controllers.TestController,
+  // @LINE:17
+  CountController_0: controllers.CountController,
+  // @LINE:19
+  AsyncController_1: controllers.AsyncController,
+  // @LINE:26
+  Assets_4: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
 
    @javax.inject.Inject()
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:6
-    UserController_0: controllers.UserController,
-    // @LINE:10
-    CountController_3: controllers.CountController,
-    // @LINE:12
-    AsyncController_2: controllers.AsyncController,
-    // @LINE:21
-    Assets_1: controllers.Assets
-  ) = this(errorHandler, UserController_0, CountController_3, AsyncController_2, Assets_1, "/")
+    UserController_2: controllers.UserController,
+    // @LINE:14
+    TestController_3: controllers.TestController,
+    // @LINE:17
+    CountController_0: controllers.CountController,
+    // @LINE:19
+    AsyncController_1: controllers.AsyncController,
+    // @LINE:26
+    Assets_4: controllers.Assets
+  ) = this(errorHandler, UserController_2, TestController_3, CountController_0, AsyncController_1, Assets_4, "/")
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, UserController_0, CountController_3, AsyncController_2, Assets_1, prefix)
+    new Routes(errorHandler, UserController_2, TestController_3, CountController_0, AsyncController_1, Assets_4, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -51,14 +55,19 @@ class Routes(
     ("""GET""", this.prefix, """controllers.UserController.index()"""),
     ("""POST""", this.prefix, """controllers.UserController.save()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users/login/""", """controllers.UserController.authenticate()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """profile""", """controllers.UserController.profile()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """profile/edit""", """controllers.UserController.edit()"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """profile/edit""", """controllers.UserController.update()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """logout""", """controllers.UserController.logout()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """categories""", """controllers.TestController.categories()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """coding""", """controllers.TestController.codingQuestion()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """count""", """controllers.CountController.count"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """message""", """controllers.AsyncController.message"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users""", """controllers.UserController.showAll()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users/""" + "$" + """id<[^/]+>""", """controllers.UserController.show(id:String)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users/edit/""" + "$" + """id<[^/]+>""", """controllers.UserController.edit(id:String)"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users/edit""", """controllers.UserController.update()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """users/delete/""" + "$" + """id<[^/]+>""", """controllers.UserController.destroy(id:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/images/""" + "$" + """file<.+>""", """controllers.Assets.at(path:String = "/public/images", file:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -71,7 +80,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix)))
   )
   private[this] lazy val controllers_UserController_index0_invoker = createInvoker(
-    UserController_0.index(),
+    UserController_2.index(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UserController",
@@ -89,7 +98,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix)))
   )
   private[this] lazy val controllers_UserController_save1_invoker = createInvoker(
-    UserController_0.save(),
+    UserController_2.save(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UserController",
@@ -107,7 +116,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("users/login/")))
   )
   private[this] lazy val controllers_UserController_authenticate2_invoker = createInvoker(
-    UserController_0.authenticate(),
+    UserController_2.authenticate(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UserController",
@@ -120,12 +129,120 @@ class Routes(
     )
   )
 
+  // @LINE:9
+  private[this] lazy val controllers_UserController_profile3_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("profile")))
+  )
+  private[this] lazy val controllers_UserController_profile3_invoker = createInvoker(
+    UserController_2.profile(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "profile",
+      Nil,
+      "GET",
+      this.prefix + """profile""",
+      """""",
+      Seq()
+    )
+  )
+
   // @LINE:10
-  private[this] lazy val controllers_CountController_count3_route = Route("GET",
+  private[this] lazy val controllers_UserController_edit4_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("profile/edit")))
+  )
+  private[this] lazy val controllers_UserController_edit4_invoker = createInvoker(
+    UserController_2.edit(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "edit",
+      Nil,
+      "GET",
+      this.prefix + """profile/edit""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:11
+  private[this] lazy val controllers_UserController_update5_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("profile/edit")))
+  )
+  private[this] lazy val controllers_UserController_update5_invoker = createInvoker(
+    UserController_2.update(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "update",
+      Nil,
+      "POST",
+      this.prefix + """profile/edit""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:12
+  private[this] lazy val controllers_UserController_logout6_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("logout")))
+  )
+  private[this] lazy val controllers_UserController_logout6_invoker = createInvoker(
+    UserController_2.logout(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UserController",
+      "logout",
+      Nil,
+      "GET",
+      this.prefix + """logout""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:14
+  private[this] lazy val controllers_TestController_categories7_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("categories")))
+  )
+  private[this] lazy val controllers_TestController_categories7_invoker = createInvoker(
+    TestController_3.categories(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.TestController",
+      "categories",
+      Nil,
+      "GET",
+      this.prefix + """categories""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:15
+  private[this] lazy val controllers_TestController_codingQuestion8_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("coding")))
+  )
+  private[this] lazy val controllers_TestController_codingQuestion8_invoker = createInvoker(
+    TestController_3.codingQuestion(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.TestController",
+      "codingQuestion",
+      Nil,
+      "GET",
+      this.prefix + """coding""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:17
+  private[this] lazy val controllers_CountController_count9_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("count")))
   )
-  private[this] lazy val controllers_CountController_count3_invoker = createInvoker(
-    CountController_3.count,
+  private[this] lazy val controllers_CountController_count9_invoker = createInvoker(
+    CountController_0.count,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.CountController",
@@ -138,12 +255,12 @@ class Routes(
     )
   )
 
-  // @LINE:12
-  private[this] lazy val controllers_AsyncController_message4_route = Route("GET",
+  // @LINE:19
+  private[this] lazy val controllers_AsyncController_message10_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("message")))
   )
-  private[this] lazy val controllers_AsyncController_message4_invoker = createInvoker(
-    AsyncController_2.message,
+  private[this] lazy val controllers_AsyncController_message10_invoker = createInvoker(
+    AsyncController_1.message,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.AsyncController",
@@ -156,12 +273,12 @@ class Routes(
     )
   )
 
-  // @LINE:14
-  private[this] lazy val controllers_UserController_showAll5_route = Route("GET",
+  // @LINE:21
+  private[this] lazy val controllers_UserController_showAll11_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("users")))
   )
-  private[this] lazy val controllers_UserController_showAll5_invoker = createInvoker(
-    UserController_0.showAll(),
+  private[this] lazy val controllers_UserController_showAll11_invoker = createInvoker(
+    UserController_2.showAll(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UserController",
@@ -174,12 +291,12 @@ class Routes(
     )
   )
 
-  // @LINE:15
-  private[this] lazy val controllers_UserController_show6_route = Route("GET",
+  // @LINE:22
+  private[this] lazy val controllers_UserController_show12_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("users/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_UserController_show6_invoker = createInvoker(
-    UserController_0.show(fakeValue[String]),
+  private[this] lazy val controllers_UserController_show12_invoker = createInvoker(
+    UserController_2.show(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UserController",
@@ -192,48 +309,12 @@ class Routes(
     )
   )
 
-  // @LINE:16
-  private[this] lazy val controllers_UserController_edit7_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("users/edit/"), DynamicPart("id", """[^/]+""",true)))
-  )
-  private[this] lazy val controllers_UserController_edit7_invoker = createInvoker(
-    UserController_0.edit(fakeValue[String]),
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.UserController",
-      "edit",
-      Seq(classOf[String]),
-      "GET",
-      this.prefix + """users/edit/""" + "$" + """id<[^/]+>""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:17
-  private[this] lazy val controllers_UserController_update8_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("users/edit")))
-  )
-  private[this] lazy val controllers_UserController_update8_invoker = createInvoker(
-    UserController_0.update(),
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.UserController",
-      "update",
-      Nil,
-      "POST",
-      this.prefix + """users/edit""",
-      """""",
-      Seq()
-    )
-  )
-
-  // @LINE:19
-  private[this] lazy val controllers_UserController_destroy9_route = Route("GET",
+  // @LINE:24
+  private[this] lazy val controllers_UserController_destroy13_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("users/delete/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_UserController_destroy9_invoker = createInvoker(
-    UserController_0.destroy(fakeValue[String]),
+  private[this] lazy val controllers_UserController_destroy13_invoker = createInvoker(
+    UserController_2.destroy(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.UserController",
@@ -246,12 +327,12 @@ class Routes(
     )
   )
 
-  // @LINE:21
-  private[this] lazy val controllers_Assets_versioned10_route = Route("GET",
+  // @LINE:26
+  private[this] lazy val controllers_Assets_versioned14_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned10_invoker = createInvoker(
-    Assets_1.versioned(fakeValue[String], fakeValue[String]),
+  private[this] lazy val controllers_Assets_versioned14_invoker = createInvoker(
+    Assets_4.versioned(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Assets",
@@ -264,73 +345,121 @@ class Routes(
     )
   )
 
+  // @LINE:27
+  private[this] lazy val controllers_Assets_at15_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/images/"), DynamicPart("file", """.+""",false)))
+  )
+  private[this] lazy val controllers_Assets_at15_invoker = createInvoker(
+    Assets_4.at(fakeValue[String], fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.Assets",
+      "at",
+      Seq(classOf[String], classOf[String]),
+      "GET",
+      this.prefix + """assets/images/""" + "$" + """file<.+>""",
+      """""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
     // @LINE:6
     case controllers_UserController_index0_route(params@_) =>
       call { 
-        controllers_UserController_index0_invoker.call(UserController_0.index())
+        controllers_UserController_index0_invoker.call(UserController_2.index())
       }
   
     // @LINE:7
     case controllers_UserController_save1_route(params@_) =>
       call { 
-        controllers_UserController_save1_invoker.call(UserController_0.save())
+        controllers_UserController_save1_invoker.call(UserController_2.save())
       }
   
     // @LINE:8
     case controllers_UserController_authenticate2_route(params@_) =>
       call { 
-        controllers_UserController_authenticate2_invoker.call(UserController_0.authenticate())
+        controllers_UserController_authenticate2_invoker.call(UserController_2.authenticate())
+      }
+  
+    // @LINE:9
+    case controllers_UserController_profile3_route(params@_) =>
+      call { 
+        controllers_UserController_profile3_invoker.call(UserController_2.profile())
       }
   
     // @LINE:10
-    case controllers_CountController_count3_route(params@_) =>
+    case controllers_UserController_edit4_route(params@_) =>
       call { 
-        controllers_CountController_count3_invoker.call(CountController_3.count)
+        controllers_UserController_edit4_invoker.call(UserController_2.edit())
+      }
+  
+    // @LINE:11
+    case controllers_UserController_update5_route(params@_) =>
+      call { 
+        controllers_UserController_update5_invoker.call(UserController_2.update())
       }
   
     // @LINE:12
-    case controllers_AsyncController_message4_route(params@_) =>
+    case controllers_UserController_logout6_route(params@_) =>
       call { 
-        controllers_AsyncController_message4_invoker.call(AsyncController_2.message)
+        controllers_UserController_logout6_invoker.call(UserController_2.logout())
       }
   
     // @LINE:14
-    case controllers_UserController_showAll5_route(params@_) =>
+    case controllers_TestController_categories7_route(params@_) =>
       call { 
-        controllers_UserController_showAll5_invoker.call(UserController_0.showAll())
+        controllers_TestController_categories7_invoker.call(TestController_3.categories())
       }
   
     // @LINE:15
-    case controllers_UserController_show6_route(params@_) =>
-      call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_UserController_show6_invoker.call(UserController_0.show(id))
-      }
-  
-    // @LINE:16
-    case controllers_UserController_edit7_route(params@_) =>
-      call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_UserController_edit7_invoker.call(UserController_0.edit(id))
+    case controllers_TestController_codingQuestion8_route(params@_) =>
+      call { 
+        controllers_TestController_codingQuestion8_invoker.call(TestController_3.codingQuestion())
       }
   
     // @LINE:17
-    case controllers_UserController_update8_route(params@_) =>
+    case controllers_CountController_count9_route(params@_) =>
       call { 
-        controllers_UserController_update8_invoker.call(UserController_0.update())
+        controllers_CountController_count9_invoker.call(CountController_0.count)
       }
   
     // @LINE:19
-    case controllers_UserController_destroy9_route(params@_) =>
-      call(params.fromPath[String]("id", None)) { (id) =>
-        controllers_UserController_destroy9_invoker.call(UserController_0.destroy(id))
+    case controllers_AsyncController_message10_route(params@_) =>
+      call { 
+        controllers_AsyncController_message10_invoker.call(AsyncController_1.message)
       }
   
     // @LINE:21
-    case controllers_Assets_versioned10_route(params@_) =>
+    case controllers_UserController_showAll11_route(params@_) =>
+      call { 
+        controllers_UserController_showAll11_invoker.call(UserController_2.showAll())
+      }
+  
+    // @LINE:22
+    case controllers_UserController_show12_route(params@_) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_UserController_show12_invoker.call(UserController_2.show(id))
+      }
+  
+    // @LINE:24
+    case controllers_UserController_destroy13_route(params@_) =>
+      call(params.fromPath[String]("id", None)) { (id) =>
+        controllers_UserController_destroy13_invoker.call(UserController_2.destroy(id))
+      }
+  
+    // @LINE:26
+    case controllers_Assets_versioned14_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
-        controllers_Assets_versioned10_invoker.call(Assets_1.versioned(path, file))
+        controllers_Assets_versioned14_invoker.call(Assets_4.versioned(path, file))
+      }
+  
+    // @LINE:27
+    case controllers_Assets_at15_route(params@_) =>
+      call(Param[String]("path", Right("/public/images")), params.fromPath[String]("file", None)) { (path, file) =>
+        controllers_Assets_at15_invoker.call(Assets_4.at(path, file))
       }
   }
 }

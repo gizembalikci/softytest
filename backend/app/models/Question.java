@@ -21,4 +21,7 @@ public class Question extends BaseModel{
 
     @Constraints.Required
     public int timeToSolve;
+
+    public static Finder<Long, Question> find = new Finder<>(Question.class);
+
 }

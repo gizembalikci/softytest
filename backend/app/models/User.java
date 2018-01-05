@@ -1,5 +1,6 @@
 package models;
 
+import java.sql.Blob;
 import java.util.*;
 import javax.persistence.*;
 
@@ -25,7 +26,8 @@ public class User extends Model{
     @OneToMany(mappedBy = "user")
     public List<Statistics> testStatistics;
 
-    public String profilePic;
+    @OneToOne
+    public ProfilePic profilePic;
     public String bio;
 
     public static Finder<String, User> find = new Finder<>(User.class);
@@ -62,11 +64,11 @@ public class User extends Model{
         this.testStatistics = testStatistics;
     }
 
-    public String getProfilePic() {
+    public ProfilePic getProfilePic() {
         return profilePic;
     }
 
-    public void setProfilePic(String profilePic) {
+    public void setProfilePic(ProfilePic profilePic) {
         this.profilePic = profilePic;
     }
 

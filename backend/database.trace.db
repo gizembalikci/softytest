@@ -232,3 +232,16 @@ category                      integer default 0 not null,
 constraint uq_statistics_user_email unique (user_email),
 constraint pk_statistics primary key (id)
 ) [42101-194]
+2018-01-05 11:32:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "PROFILE_PIC" already exists; SQL statement:
+create table profile_pic (
+id                            bıgınt auto_increment not null,
+pic                           blob,
+constraint pk_profile_pic primary key (id)
+) [42101-194]
+2018-01-05 11:32:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "STATISTICS" not found; SQL statement:
+alter table statistics drop constraint if exists fk_statistics_user_email [42102-194]
+2018-01-05 11:32:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" not found; SQL statement:
+alter table user drop constraint if exists fk_user_profile_pic_id [42102-194]

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cagdas/softytestFinal/backend/conf/routes
-// @DATE:Sun Dec 31 04:09:36 GMT 2017
+// @DATE:Fri Jan 05 13:11:20 GMT 2018
 
 
 package router {

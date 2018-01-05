@@ -12,7 +12,15 @@ import play.data.validation.*;
 public class MultipleChoice extends Question{
 
     @Constraints.Required
-    public String choices;
+    public String choice1;
+    @Constraints.Required
+    public String choice2;
+    @Constraints.Required
+    public String choice3;
+    @Constraints.Required
+    public String choice4;
+    @Constraints.Required
+    public String correctAnswer;
 
     public static Finder<Long, MultipleChoice> find = new Finder<>(MultipleChoice.class);
 }

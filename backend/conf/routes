@@ -11,12 +11,12 @@ GET     /profile/edit               controllers.UserController.edit()
 POST    /profile/edit               controllers.UserController.update()
 GET     /logout                     controllers.UserController.logout()
 
+GET     /categories                 controllers.TestController.categories()
+GET     /coding                     controllers.TestController.codingQuestion()
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
 GET     /message                    controllers.AsyncController.message
-
-
 
 GET     /users                      controllers.UserController.showAll()
 GET     /users/:id                  controllers.UserController.show(id: String)

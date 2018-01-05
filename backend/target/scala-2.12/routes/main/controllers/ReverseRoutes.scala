@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/cagdas/softytestFinal/backend/conf/routes
-// @DATE:Sun Dec 31 04:09:36 GMT 2017
+// @DATE:Fri Jan 05 13:11:20 GMT 2018
 
 import play.api.mvc.Call
 
@@ -12,29 +12,20 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers {
 
-  // @LINE:12
-  class ReverseAsyncController(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:12
-    def message(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "message")
-    }
-  
-  }
-
-  // @LINE:21
+  // @LINE:26
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:21
+    // @LINE:27
+    def at(file:String): Call = {
+      implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public/images"))); _rrc
+      Call("GET", _prefix + { _defaultPrefix } + "assets/images/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
+    }
+  
+    // @LINE:26
     def versioned(file:String): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
@@ -42,14 +33,35 @@ package controllers {
   
   }
 
-  // @LINE:10
+  // @LINE:14
+  class ReverseTestController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:15
+    def codingQuestion(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "coding")
+    }
+  
+    // @LINE:14
+    def categories(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "categories")
+    }
+  
+  }
+
+  // @LINE:17
   class ReverseCountController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:10
+    // @LINE:17
     def count(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "count")
@@ -64,28 +76,40 @@ package controllers {
     }
 
   
-    // @LINE:19
+    // @LINE:24
     def destroy(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "users/delete/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:15
+    // @LINE:22
     def show(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "users/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:14
+    // @LINE:21
     def showAll(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "users")
     }
   
-    // @LINE:16
-    def edit(id:String): Call = {
+    // @LINE:10
+    def edit(): Call = {
       
-      Call("GET", _prefix + { _defaultPrefix } + "users/edit/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
+      Call("GET", _prefix + { _defaultPrefix } + "profile/edit")
+    }
+  
+    // @LINE:9
+    def profile(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "profile")
+    }
+  
+    // @LINE:12
+    def logout(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "logout")
     }
   
     // @LINE:7
@@ -94,10 +118,10 @@ package controllers {
       Call("POST", _prefix)
     }
   
-    // @LINE:17
+    // @LINE:11
     def update(): Call = {
       
-      Call("POST", _prefix + { _defaultPrefix } + "users/edit")
+      Call("POST", _prefix + { _defaultPrefix } + "profile/edit")
     }
   
     // @LINE:8
@@ -110,6 +134,21 @@ package controllers {
     def index(): Call = {
       
       Call("GET", _prefix)
+    }
+  
+  }
+
+  // @LINE:19
+  class ReverseAsyncController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:19
+    def message(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "message")
     }
   
   }

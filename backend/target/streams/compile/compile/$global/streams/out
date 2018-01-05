@@ -1,2 +1,8 @@
-[0m[[0m[31merror[0m] [0m[0m/home/cagdas/softytestFinal/backend/app/controllers/UserController.java:45:1: missing return statement[0m
-[0m[[0m[31merror[0m] [0m[0m    }[0m
+[0m[[0m[31merror[0m] [0m[0m/home/cagdas/softytestFinal/backend/app/repository/MultipleChoiceRepository.java:32:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable choices[0m
+[0m[[0m[31merror[0m] [0m[0m  location: variable multipleChoice of type models.MultipleChoice[0m
+[0m[[0m[31merror[0m] [0m[0m        multipleChoice.choices = choices;[0m
+[0m[[0m[31merror[0m] [0m[0m/home/cagdas/softytestFinal/backend/app/repository/MultipleChoiceRepository.java:38:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   variable choices[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class models.MultipleChoice[0m
+[0m[[0m[31merror[0m] [0m[0m        String choiceString = find.byId(id).choices;[0m

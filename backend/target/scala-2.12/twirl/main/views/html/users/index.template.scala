@@ -60,7 +60,7 @@ Seq[Any](format.raw/*2.21*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Dec 31 04:33:01 GMT 2017
+                  DATE: Mon Jan 01 15:06:00 GMT 2018
                   SOURCE: /home/cagdas/softytestFinal/backend/app/views/users/index.scala.html
                   HASH: c5129bd693482984bf45e6237921e8514dc804ef
                   MATRIX: 958->2|1072->21|1100->23|1238->134|1272->152|1311->153|1352->166|1389->176|1404->182|1457->214|1487->217|1500->221|1527->227|1592->261|1624->266

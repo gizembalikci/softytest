@@ -19,5 +19,8 @@ public class CodingQuestion extends Question{
     @Constraints.Required
     public String programmingLanguage;
 
+    @Constraints.Required
+    public String baseCode;
+
     public static Finder<Long, CodingQuestion> find = new Finder<>(CodingQuestion.class);
 }
