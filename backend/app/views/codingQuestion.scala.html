@@ -1,7 +1,8 @@
 @()
 
 @layout("Coding Question"){
-    div class="py-5">
+    <script src="@routes.Assets.versioned("/javascripts/runCode.js")"></script>
+    <div class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -28,18 +29,23 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form action="" method="get">
-                            <!-----for the real project inputs can be created in for loop or the number of choices must be same for the each question ----->
-                            <!----- sadece bir seçeneğin seçilmesi js de yapılcak galibe -->
-                        <textarea type="text" class="form-control" name="sourceCode">Source Code</textarea>
+                    <form action="http://api.hackerrank.com/checker/submission.json" method="post">
+                        <textarea type="text" class="form-control" name="source" id="source">Source Code</textarea>
+                        <textarea type="text" class="form-control" name="lang" id="lang">5</textarea>
+                        <textarea type="text" class="form-control" name="testcases" id="testcases">["1","2", "3"]</textarea>
+                        <textarea type="text" class="form-control" name="api_key" id="api_key">hackerrank|2457518-2104|9d116831bff01e4b23474b30324b288025403da9</textarea>
+                        <div class="col-md-12 text-right px-1">
+
+                            <button type=submit class="btn-primary text-right btn btn-sm py-2 my-2" href="">Run</button>
+                        </div>
                     </form>
+                    <button class="btn-primary text-right btn btn-sm py-2 my-2" onclick=makeCorsRequest()>Submit</button>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 text-right px-1">
-                    <a class="btn-primary text-right btn btn-sm py-2 my-2" href="">Submit</a>
-                    <a class="btn-primary text-right btn btn-sm py-2 my-2" href="">Run</a>
-                </div>
+                <form action=" -d 'source=print 1 &lang=5&testcases=[\"1\"]
+                source=print 1&lang=5&testcases=["1"]&api_key=hackerrank|2457518-2104|9d116831bff01e4b23474b30324b288025403da9'"
+
                 <div class="col-md-12">
                     <form action="" method="get">
                             <!-----for the real project inputs can be created in for loop or the number of choices must be same for the each question ----->

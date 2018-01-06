@@ -8,6 +8,7 @@ lazy val root = (project in file(".")).enablePlugins(PlayJava, PlayEbean)
   
 libraryDependencies += guice
 libraryDependencies += jdbc
+libraryDependencies += ws
 libraryDependencies += "com.h2database" % "h2" % "1.4.194"
 
 libraryDependencies += "org.awaitility" % "awaitility" % "2.0.0" % Test
@@ -25,3 +26,5 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies += "org.webjars.bower" % "bootstrap-sass" % "3.3.6"
+
+libraryDependencies += filters
