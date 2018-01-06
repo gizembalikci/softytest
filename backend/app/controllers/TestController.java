@@ -7,6 +7,7 @@ import models.*;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.codingQuestion;
+import views.html.result;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -68,6 +69,77 @@ public class TestController extends Controller{
         return formatter.format(result);
 
     }
+
+    public Result showResult(String category) {
+
+        String numOfCorrect = session().get("correct");
+        String numOfWrong = session().get("wrong");
+        String successRate = calculateCurrentSuccessRate();
+        String id = session().get("user");
+        User user = User.find.byId(id);
+        if(user!=null) {
+            for(Statistics statistic: user.testStatistics){
+                if(statistic.category == Integer.parseInt(category)){
+                    int correct = statistic.getCorrect();
+                    int wrong = statistic.getWrong();
+                    correct += Integer.parseInt(numOfCorrect);
+                    wrong += Integer.parseInt(numOfWrong);
+                    statistic.setCorrect(correct);
+                    statistic.setWrong(wrong);
+                    statistic.update();
+                    user.update();
+                }
+            }
+            String totalSuccessRate = overallSuccessRate(user.testStatistics);
+            return ok(result.render(numOfCorrect, numOfWrong, successRate, totalSuccessRate));
+        }
+        else{
+            return badRequest();
+        }
+
+    }
+
+    public String calculateCurrentSuccessRate(){
+
+        String correctAnswersString = session().get("correct");
+        String wrongAnswersString = session().get("wrong");
+
+        int correctAnswer= Integer.parseInt(correctAnswersString);
+        int wrongAnswer= Integer.parseInt(wrongAnswersString);
+
+        double successRate = (correctAnswer + 0.001)/(correctAnswer + wrongAnswer + 0.001);
+
+        NumberFormat formatter = new DecimalFormat("#0.00");
+        return formatter.format(successRate);
+
+        }
+
+
+
+
+
+    //For multiple choice  question
+    public void checkAnswer(){
+
+        String correctAnswersString = session().get("correct");
+        String wrongAnswersString = session().get("wrong");
+
+        int correctAnswer= Integer.parseInt(correctAnswersString);
+        int wrongAnswer= Integer.parseInt(wrongAnswersString);
+
+         //TODO check konulacak doğru yanlış için if(doğruysa)
+        correctAnswer+=1;
+        //TODO else
+        wrongAnswer+=1;
+
+        correctAnswersString = Integer.toString(correctAnswer);
+        wrongAnswersString = Integer.toString(wrongAnswer);
+
+        session().put("correct",correctAnswersString);
+        session().put("wrong",wrongAnswersString);
+
+    }
+
 
 //    public static List<Question> generateMixedTest(int difficulty){
 //        int n = difficulty * 15;

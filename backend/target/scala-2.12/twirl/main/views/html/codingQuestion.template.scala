@@ -33,7 +33,8 @@ object codingQuestion extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl
 Seq[Any](format.raw/*1.4*/("""
 
 """),_display_(/*3.2*/layout("Coding Question")/*3.27*/{_display_(Seq[Any](format.raw/*3.28*/("""
-    """),format.raw/*4.5*/("""div class="py-5">
+    """),format.raw/*4.5*/("""<script src=""""),_display_(/*4.19*/routes/*4.25*/.Assets.versioned("/javascripts/runCode.js")),format.raw/*4.69*/(""""></script>
+    <div class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -60,18 +61,23 @@ Seq[Any](format.raw/*1.4*/("""
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form action="" method="get">
-                            <!-----for the real project inputs can be created in for loop or the number of choices must be same for the each question ----->
-                            <!----- sadece bir seçeneğin seçilmesi js de yapılcak galibe -->
-                        <textarea type="text" class="form-control" name="sourceCode">Source Code</textarea>
+                    <form action="http://api.hackerrank.com/checker/submission.json" method="post">
+                        <textarea type="text" class="form-control" name="source" id="source">Source Code</textarea>
+                        <textarea type="text" class="form-control" name="lang" id="lang">5</textarea>
+                        <textarea type="text" class="form-control" name="testcases" id="testcases">["1","2", "3"]</textarea>
+                        <textarea type="text" class="form-control" name="api_key" id="api_key">hackerrank|2457518-2104|9d116831bff01e4b23474b30324b288025403da9</textarea>
+                        <div class="col-md-12 text-right px-1">
+
+                            <button type=submit class="btn-primary text-right btn btn-sm py-2 my-2" href="">Run</button>
+                        </div>
                     </form>
+                    <button class="btn-primary text-right btn btn-sm py-2 my-2" onclick=makeCorsRequest()>Submit</button>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 text-right px-1">
-                    <a class="btn-primary text-right btn btn-sm py-2 my-2" href="">Submit</a>
-                    <a class="btn-primary text-right btn btn-sm py-2 my-2" href="">Run</a>
-                </div>
+                <form action=" -d 'source=print 1 &lang=5&testcases=[\"1\"]
+                source=print 1&lang=5&testcases=["1"]&api_key=hackerrank|2457518-2104|9d116831bff01e4b23474b30324b288025403da9'"
+
                 <div class="col-md-12">
                     <form action="" method="get">
                             <!-----for the real project inputs can be created in for loop or the number of choices must be same for the each question ----->
@@ -117,11 +123,11 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Jan 05 13:18:18 GMT 2018
-                  SOURCE: /home/cagdas/softytestFinal/backend/app/views/codingQuestion.scala.html
-                  HASH: 6421f565d179037d1b864208e479463de518d7ae
-                  MATRIX: 950->1|1046->3|1074->6|1107->31|1145->32|1176->37
-                  LINES: 28->1|33->1|35->3|35->3|35->3|36->4
+                  DATE: Sat Jan 06 16:11:12 EET 2018
+                  SOURCE: /home/gizem/Desktop/softytest/backend/app/views/codingQuestion.scala.html
+                  HASH: 5f3e9d4b35c8a4c352f13e28f12a5a75312dd063
+                  MATRIX: 950->1|1046->3|1074->6|1107->31|1145->32|1176->37|1216->51|1230->57|1294->101
+                  LINES: 28->1|33->1|35->3|35->3|35->3|36->4|36->4|36->4|36->4
                   -- GENERATED --
               */
           

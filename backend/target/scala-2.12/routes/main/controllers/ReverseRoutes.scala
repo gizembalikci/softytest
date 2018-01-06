@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
-// @SOURCE:/home/cagdas/softytestFinal/backend/conf/routes
-// @DATE:Fri Jan 05 13:11:20 GMT 2018
+// @SOURCE:/home/gizem/Desktop/softytest/backend/conf/routes
+// @DATE:Sat Jan 06 18:39:09 EET 2018
 
 import play.api.mvc.Call
 
@@ -12,20 +12,20 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers {
 
-  // @LINE:26
+  // @LINE:27
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:27
+    // @LINE:28
     def at(file:String): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public/images"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/images/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
     }
   
-    // @LINE:26
+    // @LINE:27
     def versioned(file:String): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
@@ -52,6 +52,12 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "categories")
     }
   
+    // @LINE:20
+    def showResult(category:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "result/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("category", category)))
+    }
+  
   }
 
   // @LINE:17
@@ -76,19 +82,19 @@ package controllers {
     }
 
   
-    // @LINE:24
+    // @LINE:25
     def destroy(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "users/delete/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:22
+    // @LINE:23
     def show(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "users/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:21
+    // @LINE:22
     def showAll(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "users")

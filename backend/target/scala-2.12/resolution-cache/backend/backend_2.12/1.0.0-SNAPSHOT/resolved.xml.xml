@@ -4,7 +4,7 @@
 		module="backend_2.12"
 		revision="1.0.0-SNAPSHOT"
 		status="integration"
-		publication="20180101150557"
+		publication="20180106160259"
 	>
 		<description>
 		backend
@@ -53,6 +53,7 @@
 		<dependency org="com.typesafe.play" name="play-akka-http-server_2.12" rev="2.6.9" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-guice_2.12" rev="2.6.9" conf="compile->default(compile)"/>
 		<dependency org="com.typesafe.play" name="play-jdbc_2.12" rev="2.6.9" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-ahc-ws_2.12" rev="2.6.9" conf="compile->default(compile)"/>
 		<dependency org="com.h2database" name="h2" rev="1.4.194" conf="compile->default(compile)"/>
 		<dependency org="org.awaitility" name="awaitility" rev="2.0.0" conf="test->default(compile)"/>
 		<dependency org="org.assertj" name="assertj-core" rev="3.6.2" conf="test->default(compile)"/>

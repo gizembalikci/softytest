@@ -22,4 +22,20 @@ public class Statistics  extends BaseModel{
     public int category;
 
     public static Finder<Long, Statistics> find = new Finder<>(Statistics.class);
+
+    public int getCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(int correct) {
+        this.correct = correct;
+    }
+
+    public int getWrong() {
+        return wrong;
+    }
+
+    public void setWrong(int wrong) {
+        this.wrong = wrong;
+    }
 }
