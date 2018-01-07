@@ -1,8 +1,17 @@
 package controllers;
 
 import akka.http.javadsl.model.MediaType;
+import akka.stream.Materializer;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import io.ebeaninternal.server.type.ScalarTypeJsonMap;
-
+import play.libs.Json;
+import play.libs.ws.WSRequest;
+import play.libs.ws.WSResponse;
+import play.libs.ws.ahc.AhcWSClient;
+import services.makeRequest;
 import models.ProfilePic;
 import models.Statistics;
 import models.User;
@@ -11,6 +20,7 @@ import play.data.DynamicForm;
 import play.data.Form;
 import play.data.FormFactory;
 import play.db.ebean.Transactional;
+import play.libs.ws.WSClient;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
@@ -27,8 +37,11 @@ import java.io.File;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Blob;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.CompletionStage;
 
 import play.mvc.Security;
 import repository.UserRepository;
@@ -41,6 +54,12 @@ public class UserController extends Controller{
 
     @Inject
     FormFactory formFactory;
+
+    @Inject
+    WSClient ws;
+
+    @Inject
+    Materializer materializer;
 
     public Result showAll(){
         List<User> users = User.find.all();
@@ -209,6 +228,24 @@ public class UserController extends Controller{
         DataBufferByte data   = (DataBufferByte) raster.getDataBuffer();
 
         return ( data.getData() );
+    }
+
+
+    public Result code(){
+        CompletionStage<WSResponse> response = ws.url("http://api.hackerrank.com/checker/submission.json").
+                setHeader("Accept", "application/json").
+                setHeader("Content-Type", "application/x-www-form-urlencoded").
+                post("source=print+1&lang=5&testcases=%5B%221%22%2C%222%22%2C+%223%22%5D&api_key=hackerrank%7C2457518-2104%7C9d116831bff01e4b23474b30324b288025403da9");
+
+        JsonNode json = response.toCompletableFuture().join().asJson();
+
+        String pretty = Json.prettyPrint(json);
+        String stringified = Json.stringify(json);
+        Logger.debug(pretty);
+        Logger.debug(stringified);
+        Map<String, String> mapped = new HashMap<String, String>();
+
+        return ok(json);
     }
 
 }
