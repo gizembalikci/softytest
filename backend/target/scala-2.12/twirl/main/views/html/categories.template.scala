@@ -100,8 +100,8 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Fri Jan 05 08:40:59 GMT 2018
-                  SOURCE: /home/cagdas/softytestFinal/backend/app/views/categories.scala.html
+                  DATE: Sat Jan 06 16:11:12 EET 2018
+                  SOURCE: /home/gizem/Desktop/softytest/backend/app/views/categories.scala.html
                   HASH: 0a0a188a17ac9d55658b0ecd1f84b25b9c577589
                   MATRIX: 946->1|1042->3|1070->6|1098->26|1136->27|1176->40
                   LINES: 28->1|33->1|35->3|35->3|35->3|36->4

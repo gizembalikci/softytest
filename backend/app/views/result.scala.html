@@ -1,0 +1,50 @@
+@(numOfCorrect:String)(numOfWrong:String)(successRate:String)(overallSuccessRate:String)
+@layout("Test Results"){
+    <div class="container">
+        <div class="py-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="profile.html">
+                        <img src="./images/ppexample.jpg" width="200px" class="float-left rounded-circle m-0"> </a>
+                </div>
+                <div class="col-md-12">
+                    <h1 class="display-3 text-center">Results of "Test Code"</h1>
+                </div>
+            </div>
+            <div class="py-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="display-4 px-5 ml-auto">Number of correct answers:@numOfCorrect</h1>
+                        <h1 class="display-4 px-5 ml-auto">Number of incorrect answers:@numOfWrong</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="p-1">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p class="lead"> Success Rate </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: @successRate%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@successRate"> @successRate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="lead"> Overall Success Rate </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: @overallSuccessRate%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@overallSuccessRate"> @overallSuccessRate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
