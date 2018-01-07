@@ -11,7 +11,7 @@ import play.libs.Json;
 import play.libs.ws.WSRequest;
 import play.libs.ws.WSResponse;
 import play.libs.ws.ahc.AhcWSClient;
-import services.makeRequest;
+
 import models.ProfilePic;
 import models.Statistics;
 import models.User;

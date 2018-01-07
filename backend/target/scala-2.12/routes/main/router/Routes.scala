@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/gizem/Desktop/softytest/backend/conf/routes
-// @DATE:Sat Jan 06 18:39:09 EET 2018
+// @DATE:Sun Jan 07 15:17:20 EET 2018
 
 package router
 
@@ -19,11 +19,11 @@ class Routes(
   UserController_2: controllers.UserController,
   // @LINE:14
   TestController_3: controllers.TestController,
-  // @LINE:17
+  // @LINE:18
   CountController_0: controllers.CountController,
-  // @LINE:19
+  // @LINE:20
   AsyncController_1: controllers.AsyncController,
-  // @LINE:27
+  // @LINE:28
   Assets_4: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -34,11 +34,11 @@ class Routes(
     UserController_2: controllers.UserController,
     // @LINE:14
     TestController_3: controllers.TestController,
-    // @LINE:17
+    // @LINE:18
     CountController_0: controllers.CountController,
-    // @LINE:19
+    // @LINE:20
     AsyncController_1: controllers.AsyncController,
-    // @LINE:27
+    // @LINE:28
     Assets_4: controllers.Assets
   ) = this(errorHandler, UserController_2, TestController_3, CountController_0, AsyncController_1, Assets_4, "/")
 
@@ -60,7 +60,7 @@ class Routes(
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """profile/edit""", """controllers.UserController.update()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """logout""", """controllers.UserController.logout()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """categories""", """controllers.TestController.categories()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """coding""", """controllers.TestController.codingQuestion()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """coding""", """controllers.UserController.code()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """count""", """controllers.CountController.count"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """message""", """controllers.AsyncController.message"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """result/""" + "$" + """category<[^/]+>""", """controllers.TestController.showResult(category:String)"""),
@@ -221,15 +221,15 @@ class Routes(
   )
 
   // @LINE:15
-  private[this] lazy val controllers_TestController_codingQuestion8_route = Route("GET",
+  private[this] lazy val controllers_UserController_code8_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("coding")))
   )
-  private[this] lazy val controllers_TestController_codingQuestion8_invoker = createInvoker(
-    TestController_3.codingQuestion(),
+  private[this] lazy val controllers_UserController_code8_invoker = createInvoker(
+    UserController_2.code(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.TestController",
-      "codingQuestion",
+      "controllers.UserController",
+      "code",
       Nil,
       "GET",
       this.prefix + """coding""",
@@ -238,7 +238,7 @@ class Routes(
     )
   )
 
-  // @LINE:17
+  // @LINE:18
   private[this] lazy val controllers_CountController_count9_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("count")))
   )
@@ -256,7 +256,7 @@ class Routes(
     )
   )
 
-  // @LINE:19
+  // @LINE:20
   private[this] lazy val controllers_AsyncController_message10_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("message")))
   )
@@ -274,7 +274,7 @@ class Routes(
     )
   )
 
-  // @LINE:20
+  // @LINE:21
   private[this] lazy val controllers_TestController_showResult11_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("result/"), DynamicPart("category", """[^/]+""",true)))
   )
@@ -292,7 +292,7 @@ class Routes(
     )
   )
 
-  // @LINE:22
+  // @LINE:23
   private[this] lazy val controllers_UserController_showAll12_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("users")))
   )
@@ -310,7 +310,7 @@ class Routes(
     )
   )
 
-  // @LINE:23
+  // @LINE:24
   private[this] lazy val controllers_UserController_show13_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("users/"), DynamicPart("id", """[^/]+""",true)))
   )
@@ -328,7 +328,7 @@ class Routes(
     )
   )
 
-  // @LINE:25
+  // @LINE:26
   private[this] lazy val controllers_UserController_destroy14_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("users/delete/"), DynamicPart("id", """[^/]+""",true)))
   )
@@ -346,7 +346,7 @@ class Routes(
     )
   )
 
-  // @LINE:27
+  // @LINE:28
   private[this] lazy val controllers_Assets_versioned15_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
@@ -364,7 +364,7 @@ class Routes(
     )
   )
 
-  // @LINE:28
+  // @LINE:29
   private[this] lazy val controllers_Assets_at16_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/images/"), DynamicPart("file", """.+""",false)))
   )
@@ -434,54 +434,54 @@ class Routes(
       }
   
     // @LINE:15
-    case controllers_TestController_codingQuestion8_route(params@_) =>
+    case controllers_UserController_code8_route(params@_) =>
       call { 
-        controllers_TestController_codingQuestion8_invoker.call(TestController_3.codingQuestion())
+        controllers_UserController_code8_invoker.call(UserController_2.code())
       }
   
-    // @LINE:17
+    // @LINE:18
     case controllers_CountController_count9_route(params@_) =>
       call { 
         controllers_CountController_count9_invoker.call(CountController_0.count)
       }
   
-    // @LINE:19
+    // @LINE:20
     case controllers_AsyncController_message10_route(params@_) =>
       call { 
         controllers_AsyncController_message10_invoker.call(AsyncController_1.message)
       }
   
-    // @LINE:20
+    // @LINE:21
     case controllers_TestController_showResult11_route(params@_) =>
       call(params.fromPath[String]("category", None)) { (category) =>
         controllers_TestController_showResult11_invoker.call(TestController_3.showResult(category))
       }
   
-    // @LINE:22
+    // @LINE:23
     case controllers_UserController_showAll12_route(params@_) =>
       call { 
         controllers_UserController_showAll12_invoker.call(UserController_2.showAll())
       }
   
-    // @LINE:23
+    // @LINE:24
     case controllers_UserController_show13_route(params@_) =>
       call(params.fromPath[String]("id", None)) { (id) =>
         controllers_UserController_show13_invoker.call(UserController_2.show(id))
       }
   
-    // @LINE:25
+    // @LINE:26
     case controllers_UserController_destroy14_route(params@_) =>
       call(params.fromPath[String]("id", None)) { (id) =>
         controllers_UserController_destroy14_invoker.call(UserController_2.destroy(id))
       }
   
-    // @LINE:27
+    // @LINE:28
     case controllers_Assets_versioned15_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[String]("file", None)) { (path, file) =>
         controllers_Assets_versioned15_invoker.call(Assets_4.versioned(path, file))
       }
   
-    // @LINE:28
+    // @LINE:29
     case controllers_Assets_at16_route(params@_) =>
       call(Param[String]("path", Right("/public/images")), params.fromPath[String]("file", None)) { (path, file) =>
         controllers_Assets_at16_invoker.call(Assets_4.at(path, file))

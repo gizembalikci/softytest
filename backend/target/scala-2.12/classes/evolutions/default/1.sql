@@ -9,10 +9,7 @@ create table coding_question (
   category                      integer not null,
   difficulty                    integer not null,
   time_to_solve                 integer not null,
-  inputs                        varchar(255),
-  outputs                       varchar(255),
-  programming_language          varchar(255),
-  base_code                     varchar(255),
+  coding_question_content       clob,
   constraint pk_coding_question primary key (id)
 );
 

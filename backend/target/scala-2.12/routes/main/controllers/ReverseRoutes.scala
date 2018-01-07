@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/gizem/Desktop/softytest/backend/conf/routes
-// @DATE:Sat Jan 06 18:39:09 EET 2018
+// @DATE:Sun Jan 07 15:17:20 EET 2018
 
 import play.api.mvc.Call
 
@@ -12,20 +12,20 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers {
 
-  // @LINE:27
+  // @LINE:28
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:28
+    // @LINE:29
     def at(file:String): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public/images"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/images/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
     }
   
-    // @LINE:27
+    // @LINE:28
     def versioned(file:String): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[String]].unbind("file", file))
@@ -40,19 +40,13 @@ package controllers {
     }
 
   
-    // @LINE:15
-    def codingQuestion(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "coding")
-    }
-  
     // @LINE:14
     def categories(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "categories")
     }
   
-    // @LINE:20
+    // @LINE:21
     def showResult(category:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "result/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("category", category)))
@@ -60,14 +54,14 @@ package controllers {
   
   }
 
-  // @LINE:17
+  // @LINE:18
   class ReverseCountController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:17
+    // @LINE:18
     def count(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "count")
@@ -82,19 +76,19 @@ package controllers {
     }
 
   
-    // @LINE:25
+    // @LINE:26
     def destroy(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "users/delete/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:23
+    // @LINE:24
     def show(id:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "users/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("id", id)))
     }
   
-    // @LINE:22
+    // @LINE:23
     def showAll(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "users")
@@ -142,16 +136,22 @@ package controllers {
       Call("GET", _prefix)
     }
   
+    // @LINE:15
+    def code(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "coding")
+    }
+  
   }
 
-  // @LINE:19
+  // @LINE:20
   class ReverseAsyncController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:19
+    // @LINE:20
     def message(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "message")

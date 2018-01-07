@@ -40,13 +40,14 @@ Seq[Any](format.raw/*1.32*/("""
         <link rel="stylesheet" href=""""),_display_(/*8.39*/routes/*8.45*/.Assets.versioned("stylesheets/theme.css")),format.raw/*8.87*/("""">
         <link rel="stylesheet" href=""""),_display_(/*9.39*/routes/*9.45*/.Assets.versioned("stylesheets/font-awesome.min.css")),format.raw/*9.98*/("""" type="text/css">
         <link rel="shortcut icon" type="image/png" href=""""),_display_(/*10.59*/routes/*10.65*/.Assets.versioned("images/favicon.png")),format.raw/*10.104*/("""">
+        <script src=""""),_display_(/*11.23*/routes/*11.29*/.Assets.versioned("javascripts/jquery-3.1.1.min.js")),format.raw/*11.81*/("""" crossorigin="anonymous"></script>
     </head>
     <body>
-    """),_display_(/*13.6*/content),format.raw/*13.13*/("""
-        """),format.raw/*14.9*/("""<script src=""""),_display_(/*14.23*/routes/*14.29*/.Assets.versioned("javascripts/jquery-3.2.1.slim.min.js")),format.raw/*14.86*/("""" crossorigin="anonymous"></script>
-        <script src=""""),_display_(/*15.23*/routes/*15.29*/.Assets.versioned("javascripts/popper.min.js")),format.raw/*15.75*/("""" crossorigin="anonymous"></script>
-        <script src=""""),_display_(/*16.23*/routes/*16.29*/.Assets.versioned("javascripts/bootstrap.min.js")),format.raw/*16.78*/("""" crossorigin="anonymous"></script>
-        <script src=""""),_display_(/*17.23*/routes/*17.29*/.Assets.versioned("javascripts/signupFormValidation.js")),format.raw/*17.85*/(""""></script>
+    """),_display_(/*14.6*/content),format.raw/*14.13*/("""
+
+        """),format.raw/*16.9*/("""<script src=""""),_display_(/*16.23*/routes/*16.29*/.Assets.versioned("javascripts/popper.min.js")),format.raw/*16.75*/("""" crossorigin="anonymous"></script>
+        <script src=""""),_display_(/*17.23*/routes/*17.29*/.Assets.versioned("javascripts/bootstrap.min.js")),format.raw/*17.78*/("""" crossorigin="anonymous"></script>
+        <script src=""""),_display_(/*18.23*/routes/*18.29*/.Assets.versioned("javascripts/signupFormValidation.js")),format.raw/*18.85*/(""""></script>
         <pingendo onclick="window.open('https://pingendo.com/', '_blank')" style="cursor:pointer;position: fixed;bottom: 10px;right:10px;padding:2px;background-color: #00b0eb;border-radius: 8px; width:100px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:12px;color:white">made with&nbsp;&nbsp;
             <img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block" alt="Pingendo logo" height="16">
         </pingendo>
@@ -68,11 +69,11 @@ Seq[Any](format.raw/*1.32*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Jan 06 16:11:12 EET 2018
+                  DATE: Sun Jan 07 15:17:20 EET 2018
                   SOURCE: /home/gizem/Desktop/softytest/backend/app/views/layout.scala.html
-                  HASH: fd30facdb5a3ed05926224db6b3b6bb023c5739a
-                  MATRIX: 954->1|1079->31|1106->32|1167->67|1192->72|1373->227|1387->233|1449->275|1516->316|1530->322|1603->375|1707->452|1722->458|1783->497|1840->528|1868->535|1904->544|1945->558|1960->564|2038->621|2123->679|2138->685|2205->731|2290->789|2305->795|2375->844|2460->902|2475->908|2552->964
-                  LINES: 28->1|33->1|34->2|37->5|37->5|40->8|40->8|40->8|41->9|41->9|41->9|42->10|42->10|42->10|45->13|45->13|46->14|46->14|46->14|46->14|47->15|47->15|47->15|48->16|48->16|48->16|49->17|49->17|49->17
+                  HASH: 0520a1c65ade6db5394645b4a38f5df1896338a3
+                  MATRIX: 954->1|1079->31|1106->32|1167->67|1192->72|1373->227|1387->233|1449->275|1516->316|1530->322|1603->375|1707->452|1722->458|1783->497|1835->522|1850->528|1923->580|2013->644|2041->651|2078->661|2119->675|2134->681|2201->727|2286->785|2301->791|2371->840|2456->898|2471->904|2548->960
+                  LINES: 28->1|33->1|34->2|37->5|37->5|40->8|40->8|40->8|41->9|41->9|41->9|42->10|42->10|42->10|43->11|43->11|43->11|46->14|46->14|48->16|48->16|48->16|48->16|49->17|49->17|49->17|50->18|50->18|50->18
                   -- GENERATED --
               */
           

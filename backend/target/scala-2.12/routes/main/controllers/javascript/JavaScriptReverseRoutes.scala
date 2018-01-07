@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/home/gizem/Desktop/softytest/backend/conf/routes
-// @DATE:Sat Jan 06 18:39:09 EET 2018
+// @DATE:Sun Jan 07 15:17:20 EET 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -12,7 +12,7 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers.javascript {
 
-  // @LINE:27
+  // @LINE:28
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -20,7 +20,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:28
+    // @LINE:29
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """
@@ -30,7 +30,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:27
+    // @LINE:28
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -50,16 +50,6 @@ package controllers.javascript {
     }
 
   
-    // @LINE:15
-    def codingQuestion: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.TestController.codingQuestion",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "coding"})
-        }
-      """
-    )
-  
     // @LINE:14
     def categories: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TestController.categories",
@@ -70,7 +60,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:20
+    // @LINE:21
     def showResult: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.TestController.showResult",
       """
@@ -82,7 +72,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:17
+  // @LINE:18
   class ReverseCountController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -90,7 +80,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:17
+    // @LINE:18
     def count: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CountController.count",
       """
@@ -110,7 +100,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:25
+    // @LINE:26
     def destroy: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UserController.destroy",
       """
@@ -120,7 +110,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:23
+    // @LINE:24
     def show: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UserController.show",
       """
@@ -130,7 +120,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:22
+    // @LINE:23
     def showAll: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UserController.showAll",
       """
@@ -210,9 +200,19 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:15
+    def code: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UserController.code",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "coding"})
+        }
+      """
+    )
+  
   }
 
-  // @LINE:19
+  // @LINE:20
   class ReverseAsyncController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -220,7 +220,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:19
+    // @LINE:20
     def message: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AsyncController.message",
       """

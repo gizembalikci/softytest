@@ -33,8 +33,7 @@ object codingQuestion extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl
 Seq[Any](format.raw/*1.4*/("""
 
 """),_display_(/*3.2*/layout("Coding Question")/*3.27*/{_display_(Seq[Any](format.raw/*3.28*/("""
-    """),format.raw/*4.5*/("""<script src=""""),_display_(/*4.19*/routes/*4.25*/.Assets.versioned("/javascripts/runCode.js")),format.raw/*4.69*/(""""></script>
-    <div class="py-5">
+    """),format.raw/*4.5*/("""<div class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -61,7 +60,9 @@ Seq[Any](format.raw/*1.4*/("""
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form action="http://api.hackerrank.com/checker/submission.json" method="post">
+                    <iframe src = "" id="hiddenFrame" name="hiddenFrame" width="300" height="300" border="0">
+                    </iframe>
+                    <form name="form" action="http://api.hackerrank.com/checker/submission.json" method="post" target="hiddenFrame">
                         <textarea type="text" class="form-control" name="source" id="source">Source Code</textarea>
                         <textarea type="text" class="form-control" name="lang" id="lang">5</textarea>
                         <textarea type="text" class="form-control" name="testcases" id="testcases">["1","2", "3"]</textarea>
@@ -71,7 +72,8 @@ Seq[Any](format.raw/*1.4*/("""
                             <button type=submit class="btn-primary text-right btn btn-sm py-2 my-2" href="">Run</button>
                         </div>
                     </form>
-                    <button class="btn-primary text-right btn btn-sm py-2 my-2" onclick=makeCorsRequest()>Submit</button>
+                    <button class="btn-primary text-right btn btn-sm py-2 my-2">Submit</button>
+                    <script src=""""),_display_(/*44.35*/routes/*44.41*/.Assets.versioned("/javascripts/runCode.js")),format.raw/*44.85*/(""""></script>
                 </div>
             </div>
             <div class="row">
@@ -123,11 +125,11 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sat Jan 06 16:11:12 EET 2018
+                  DATE: Sun Jan 07 15:17:20 EET 2018
                   SOURCE: /home/gizem/Desktop/softytest/backend/app/views/codingQuestion.scala.html
-                  HASH: 5f3e9d4b35c8a4c352f13e28f12a5a75312dd063
-                  MATRIX: 950->1|1046->3|1074->6|1107->31|1145->32|1176->37|1216->51|1230->57|1294->101
-                  LINES: 28->1|33->1|35->3|35->3|35->3|36->4|36->4|36->4|36->4
+                  HASH: 3eb91f7bad899cc142b6e83b255efc11807f6d28
+                  MATRIX: 950->1|1046->3|1074->6|1107->31|1145->32|1176->37|3772->2606|3787->2612|3852->2656
+                  LINES: 28->1|33->1|35->3|35->3|35->3|36->4|76->44|76->44|76->44
                   -- GENERATED --
               */
           
