@@ -235,10 +235,8 @@ public class UserController extends Controller{
 
     public Result code(Long id){
         CodingQuestion codingQuestion = CodingQuestion.find.byId(id);
-        DynamicForm requestData = formFactory.form().bindFromRequest();
-        String src = request().body().asFormUrlEncoded().get("source")[0];
-        String source = "sanane ya of salak mısın";
-        Logger.debug(Json.stringify(jsonSource));
+        String source = request().body().asText();
+        //Logger.debug(Json.stringify(jsonSource));
         String body = "source=" + java.net.URLEncoder.encode(source) + "&lang=" + codingQuestion.programmingLanguage + "&testcases=" + java.net.URLEncoder.encode(codingQuestion.testcases) + "&api_key=hackerrank%7C2457518-2104%7C9d116831bff01e4b23474b30324b288025403da9";
         CompletionStage<WSResponse> response = ws.url("http://api.hackerrank.com/checker/submission.json").
                 setHeader("Accept", "application/json").

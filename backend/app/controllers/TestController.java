@@ -267,6 +267,13 @@ public class TestController extends Controller{
 
     }
 
+//    public void checkAnswerCoding(){
+//        String correctAnswers = session().get("correct");
+//        String correctAnswers = session().get("wrong");
+//
+//
+//    }
+
 
 //    public static List<Question> generateMixedTest(int difficulty){
 //        int n = difficulty * 15;
