@@ -25,7 +25,7 @@ create table multiple_choice (
   choice1                       varchar(255),
   choice2                       varchar(255),
   choice3                       varchar(255),
-  choice4                       varchar(255),
+  choice4                       varchar(255),gi
   correct_answer                varchar(255),
   constraint pk_multiple_choice primary key (id)
 );
