@@ -14,8 +14,10 @@ GET     /logout                     controllers.UserController.logout()
 GET     /categories                 controllers.TestController.categories()
 GET     /coding/:id                 controllers.TestController.codingQuestion(id: Long)
 POST    /coding/:id                 controllers.UserController.code(id:Long)
+POST    /checkanswer/:id            controllers.TestController.checkAnswerCoding(id: Long)
 
-#GET     /newCodingQuestionsBence    controllers.TestController.codingQuestionInsert()
+GET     /newCodingQuestionsBence    controllers.TestController.codingQuestionInsert()
+GET     /codemirror                 controllers.TestController.codeMirror()
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
