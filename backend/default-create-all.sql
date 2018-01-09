@@ -1,19 +1,22 @@
 create table coding_question (
-  id                            bigint auto_increment not null,
-  question_content              varchar(255),
-  category                      integer not null,
-  difficulty                    integer not null,
-  time_to_solve                 integer not null,
-  coding_question_content       clob,
+  id                            bıgınt auto_increment not null,
+  question_content              TEXT,
+  category                      ınteger not null,
+  difficulty                    ınteger not null,
+  time_to_solve                 ınteger not null,
+  testcases                     TEXT,
+  outputs                       TEXT,
+  programming_language          varchar(255),
+  base_code                     TEXT,
   constraint pk_coding_question primary key (id)
 );
 
 create table multiple_choice (
-  id                            bigint auto_increment not null,
-  question_content              varchar(255),
-  category                      integer not null,
-  difficulty                    integer not null,
-  time_to_solve                 integer not null,
+  id                            bıgınt auto_increment not null,
+  question_content              TEXT,
+  category                      ınteger not null,
+  difficulty                    ınteger not null,
+  time_to_solve                 ınteger not null,
   choice1                       varchar(255),
   choice2                       varchar(255),
   choice3                       varchar(255),
@@ -23,13 +26,13 @@ create table multiple_choice (
 );
 
 create table profile_pic (
-  id                            bigint auto_increment not null,
+  id                            bıgınt auto_increment not null,
   pic                           blob,
   constraint pk_profile_pic primary key (id)
 );
 
 create table statistics (
-  id                            bigint auto_increment not null,
+  id                            bıgınt auto_increment not null,
   user_email                    varchar(255) not null,
   correct                       integer default 0 not null,
   wrong                         integer default 0 not null,
@@ -41,7 +44,7 @@ create table user (
   email                         varchar(255) not null,
   password                      varchar(255),
   name                          varchar(255),
-  profile_pic_id                bigint,
+  profile_pic_id                bıgınt,
   bio                           varchar(255),
   constraint uq_user_profile_pic_id unique (profile_pic_id),
   constraint pk_user primary key (email)

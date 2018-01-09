@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import io.ebeaninternal.server.type.ScalarTypeJsonMap;
+import models.CodingQuestion;
 import play.libs.Json;
 import play.libs.ws.WSRequest;
 import play.libs.ws.WSResponse;
@@ -46,6 +47,7 @@ import java.util.concurrent.CompletionStage;
 import play.mvc.Security;
 import repository.UserRepository;
 import services.StoreSecured;
+import sun.rmi.runtime.Log;
 import views.html.*;
 import views.html.index;
 import views.html.users.*;
@@ -164,7 +166,7 @@ public class UserController extends Controller{
 //            profilePic.save();
 //            oldUser.setProfilePic(profilePic);
 //        }
-//        oldUser.update();
+        oldUser.update();
         return redirect(routes.UserController.profile());
     }
 //
@@ -231,11 +233,17 @@ public class UserController extends Controller{
     }
 
 
-    public Result code(){
+    public Result code(Long id){
+        CodingQuestion codingQuestion = CodingQuestion.find.byId(id);
+        DynamicForm requestData = formFactory.form().bindFromRequest();
+        String src = request().body().asFormUrlEncoded().get("source")[0];
+        String source = "sanane ya of salak mısın";
+        Logger.debug(Json.stringify(jsonSource));
+        String body = "source=" + java.net.URLEncoder.encode(source) + "&lang=" + codingQuestion.programmingLanguage + "&testcases=" + java.net.URLEncoder.encode(codingQuestion.testcases) + "&api_key=hackerrank%7C2457518-2104%7C9d116831bff01e4b23474b30324b288025403da9";
         CompletionStage<WSResponse> response = ws.url("http://api.hackerrank.com/checker/submission.json").
                 setHeader("Accept", "application/json").
                 setHeader("Content-Type", "application/x-www-form-urlencoded").
-                post("source=print+1&lang=5&testcases=%5B%221%22%2C%222%22%2C+%223%22%5D&api_key=hackerrank%7C2457518-2104%7C9d116831bff01e4b23474b30324b288025403da9");
+                post(body);
 
         JsonNode json = response.toCompletableFuture().join().asJson();
 

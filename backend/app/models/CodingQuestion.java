@@ -12,25 +12,20 @@ import play.data.validation.*;
 @Table
 public class CodingQuestion extends Question{
 
+    @Column(columnDefinition = "TEXT")
+    @Constraints.Required
+    public String testcases;
 
-    //base code,language,test case
-    //source,lang,testcases
-    //testcases =["1","2","3"]
-    @DbJson
-    Map<String,String> codingQuestionContent;
+    @Column(columnDefinition = "TEXT")
+    @Constraints.Required
+    public String outputs;
 
+    @Constraints.Required
+    public String programmingLanguage;
 
-//    @Constraints.Required
-//    public String inputs;
-//
-//    @Constraints.Required
-//    public String outputs;
-//
-//    @Constraints.Required
-//    public String programmingLanguage;
-//
-//    @Constraints.Required
-//    public String baseCode;
+    @Column(columnDefinition = "TEXT")
+    @Constraints.Required
+    public String baseCode;
 
     public static Finder<Long, CodingQuestion> find = new Finder<>(CodingQuestion.class);
 }

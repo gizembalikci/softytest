@@ -1,80 +1,73 @@
-@()
-
+@(question: CodingQuestion)
 @layout("Coding Question"){
-    <div class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <p class="lead"> Remaining Time </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 offset-md-8">
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 60%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">60s</div>
+    <script src="@routes.Assets.versioned("javascripts/parseOutput.js")"></script>
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="lead"> Remaining Time </p>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <div class="py-2 my-3">
-        <div class="container my-3">
-            <div class="row">
-                <div class="col-md-12">
-                    <p class="">Question body for multiple choice question.Question body for multiple choice question.Question body for multiple choice question.Question body for multiple choice question.Question body for multiple choice question.Question body for multiple
-                        choice question.Question body for multiple choice question.Question body for multiple choice question.Question body for multiple choice question.Question body for multiple choice question.Question body for multiple choice question.Question
-                        body for multiple choice question.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <iframe src = "" id="hiddenFrame" name="hiddenFrame" width="300" height="300" border="0">
-                    </iframe>
-                    <form name="form" action="http://api.hackerrank.com/checker/submission.json" method="post" target="hiddenFrame">
-                        <textarea type="text" class="form-control" name="source" id="source">Source Code</textarea>
-                        <textarea type="text" class="form-control" name="lang" id="lang">5</textarea>
-                        <textarea type="text" class="form-control" name="testcases" id="testcases">["1","2", "3"]</textarea>
-                        <textarea type="text" class="form-control" name="api_key" id="api_key">hackerrank|2457518-2104|9d116831bff01e4b23474b30324b288025403da9</textarea>
-                        <div class="col-md-12 text-right px-1">
-
-                            <button type=submit class="btn-primary text-right btn btn-sm py-2 my-2" href="">Run</button>
+                <div class="row">
+                    <div class="col-md-3 offset-md-8">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 60%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">60s</div>
                         </div>
-                    </form>
-                    <button class="btn-primary text-right btn btn-sm py-2 my-2">Submit</button>
-                    <script src="@routes.Assets.versioned("/javascripts/runCode.js")"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-2 my-3">
+            <div class="container my-3">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="">@question.questionContent</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="" target="hiddenIframe">
+                                <!-----for the real project inputs can be created in for loop or the number of choices must be same for the each question ----->
+                                <!----- sadece bir seçeneğin seçilmesi js de yapılcak galibe -->
+                            <div class="form-group"><label>Source Code</label>
+                                <textarea type="text" name="source" class="form-control text-output" id="source" style="background-color:#212529;color:#fff;">@question.baseCode</textarea></div>
+                            <div class="col-md-12 text-right px-1">
+                                <button class="btn-primary text-left btn btn-sm py-2 my-2" href="" onclick=compileRequest(@question.id)>Run</button></div>
+                        </form>
+                    </div>
+                </div>
+                <iframe name="hiddenIframe" id="hiddenIframe" src="" style="width:0;height:0;border:0; border:none;"></iframe>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <label>Output</label>
+                            <textarea type="text" name="output" id="output" class="form-control text-output" style="background-color:#212529;color:#fff;" readonly></textarea>
+                        </div>
+
+                        <div class="col-md-12 text-right px-1">
+                            <button class="btn-primary text-left btn btn-sm py-2 my-2" href="">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="lead"> Answred/Total Question </p>
                 </div>
             </div>
             <div class="row">
-                <form action=" -d 'source=print 1 &lang=5&testcases=[\"1\"]
-                source=print 1&lang=5&testcases=["1"]&api_key=hackerrank|2457518-2104|9d116831bff01e4b23474b30324b288025403da9'"
-
                 <div class="col-md-12">
-                    <form action="" method="get">
-                            <!-----for the real project inputs can be created in for loop or the number of choices must be same for the each question ----->
-                            <!----- sadece bir seçeneğin seçilmesi js de yapılcak galibe -->
-                        <textarea type="text" class="form-control" name="output">Output</textarea>
-                    </form>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 60%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">60s</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-right py-2">
+                    <a class="btn-primary text-right btn px-4" href="">Finish Test </a>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <p class="lead"> Answred/Total Question </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 60%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">60s</div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 text-right py-2">
-                <a class="btn-primary text-right btn px-4" href="">Finish Test </a>
-            </div>
-        </div>
-    </div>
 }
