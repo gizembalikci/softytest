@@ -410,8 +410,150 @@ public class TestController extends Controller{
         codingQuestion6.save();
 
 
+        MultipleChoice multipleChoiceQ1 = new MultipleChoice();
+        multipleChoiceQ1.questionContent = "What is Encapsulation?";
+        multipleChoiceQ1.category = 1;
+        multipleChoiceQ1.difficulty = 1;
+        multipleChoiceQ1.timeToSolve = 2;
+        multipleChoiceQ1.choice1 = "Encapsulation is a technique to define different methods of same type.";
+        multipleChoiceQ1.choice2 = "Encapsulation is the ability of an object to take on many forms.";
+        multipleChoiceQ1.choice3 = "Encapsulation is the technique of making the fields in a class private and providing access to the fields via public methods.";
+        multipleChoiceQ1.choice4 = "None of the above.";
+        multipleChoiceQ1.correctAnswer = "Encapsulation is the technique of making the fields in a class private and providing access to the fields via public methods.";
+        multipleChoiceQ1.save();
 
 
+        MultipleChoice multipleChoiceQ2 = new MultipleChoice();
+        multipleChoiceQ2.questionContent = " What is synchronization?";
+        multipleChoiceQ2.category = 1;
+        multipleChoiceQ2.difficulty = 1;
+        multipleChoiceQ2.timeToSolve = 2;
+        multipleChoiceQ2.choice1 = "Synchronization is the capability to control the access of multiple threads to shared resources.";
+        multipleChoiceQ2.choice2 = "Synchronization is the process of writing the state of an object to another object.";
+        multipleChoiceQ2.choice3 = "Synchronization is the process of writing the state of an object to byte stream.";
+        multipleChoiceQ2.choice4 = "None of the above.";
+        multipleChoiceQ2.correctAnswer = "Synchronization is the capability to control the access of multiple threads to shared resources.";
+        multipleChoiceQ2.save();
+
+
+
+        MultipleChoice multipleChoiceQ3 = new MultipleChoice();
+        multipleChoiceQ3.questionContent = "Which of the following access specifier in C# allows a class to hide its member variables and member functions from other functions and objects?";
+        multipleChoiceQ3.category = 1;
+        multipleChoiceQ3.difficulty = 1;
+        multipleChoiceQ3.timeToSolve = 2;
+        multipleChoiceQ3.choice1 = "Public";
+        multipleChoiceQ3.choice2 = "Private";
+        multipleChoiceQ3.choice3 = "Protected";
+        multipleChoiceQ3.choice4 = "Internal";
+        multipleChoiceQ3.correctAnswer = "Private";
+        multipleChoiceQ3.save();
+
+
+
+
+        MultipleChoice multipleChoiceQ4 = new MultipleChoice();
+        multipleChoiceQ4.questionContent = "Which of the following searching techniques do not require the data to be in sorted form";
+        multipleChoiceQ4.category = 1;
+        multipleChoiceQ4.difficulty = 2;
+        multipleChoiceQ4.timeToSolve = 2;
+        multipleChoiceQ4.choice1 = "Binary Search";
+        multipleChoiceQ4.choice2 = "Interpolation Search";
+        multipleChoiceQ4.choice3 = "Linear Search";
+        multipleChoiceQ4.choice4 = "All of the above";
+        multipleChoiceQ4.correctAnswer = "Binary Search";
+        multipleChoiceQ4.save();
+
+
+
+        MultipleChoice multipleChoiceQ5 = new MultipleChoice();
+        multipleChoiceQ5.questionContent = "What data structure is used for breadth first traversal of a graph?";
+        multipleChoiceQ5.category = 1;
+        multipleChoiceQ5.difficulty = 2;
+        multipleChoiceQ5.timeToSolve = 2;
+        multipleChoiceQ5.choice1 = "queue";
+        multipleChoiceQ5.choice2 = "stack";
+        multipleChoiceQ5.choice3 = "list";
+        multipleChoiceQ5.choice4 = "none of the above";
+        multipleChoiceQ5.correctAnswer = "queue";
+        multipleChoiceQ5.save();
+
+
+
+
+        MultipleChoice multipleChoiceQ6 = new MultipleChoice();
+        multipleChoiceQ6.questionContent = "Graph traversal is different from a tree traversal, because";
+        multipleChoiceQ6.category = 1;
+        multipleChoiceQ6.difficulty = 2;
+        multipleChoiceQ6.timeToSolve = 2;
+        multipleChoiceQ6.choice1 = "trees are not connected.";
+        multipleChoiceQ6.choice2 = "graphs may have loops.";
+        multipleChoiceQ6.choice3 = "trees have root.";
+        multipleChoiceQ6.choice4 = "None is true as tree is a subset of graph.";
+        multipleChoiceQ6.correctAnswer = "trees have root.";
+        multipleChoiceQ6.save();
+
+        MultipleChoice multipleChoiceQ7 = new MultipleChoice();
+        multipleChoiceQ7.questionContent = " What is the output of the following program?\n" +
+                "\n" +
+                "#include<stdio.h>\n" +
+                "\n" +
+                "main()\n" +
+                "{\n" +
+                "   printf(\"\\\");\n" +
+                "}";
+        multipleChoiceQ7.category = 1;
+        multipleChoiceQ7.difficulty = 3;
+        multipleChoiceQ7.timeToSolve = 2;
+        multipleChoiceQ7.choice1 = "\\";
+        multipleChoiceQ7.choice2 = "\\\"";
+        multipleChoiceQ7.choice3 = "\"";
+        multipleChoiceQ7.choice4 = "Compile error";
+        multipleChoiceQ7.correctAnswer = "Compile error";
+        multipleChoiceQ7.save();
+
+
+
+        MultipleChoice multipleChoiceQ8 = new MultipleChoice();
+        multipleChoiceQ8.questionContent = "What is the output of the following program?\n" +
+                "\n" +
+                "#include<stdio.h>\n" +
+                "\n" +
+                "main()\n" +
+                "{\t\n" +
+                "   fprintf(stdout,\"Hello, World!\");\n" +
+                "}";
+        multipleChoiceQ8.category = 1;
+        multipleChoiceQ8.difficulty = 3;
+        multipleChoiceQ8.timeToSolve = 2;
+        multipleChoiceQ8.choice1 = "Hello, World!";
+        multipleChoiceQ8.choice2 = "No output";
+        multipleChoiceQ8.choice3 = "Compile error";
+        multipleChoiceQ8.choice4 = "Runtime error";
+        multipleChoiceQ8.correctAnswer = "Hello, World!";
+        multipleChoiceQ8.save();
+
+
+        MultipleChoice multipleChoiceQ9 = new MultipleChoice();
+        multipleChoiceQ9.questionContent = "#include<stdio.h>\n" +
+                "\n" +
+                "int main()\n" +
+                "{\n" +
+                "    int y = 100;\n" +
+                "    const int x = y;\n" +
+                "    \n" +
+                "    printf(\"%d\\n\", x);\n" +
+                "    return 0;\n" +
+                "}";
+        multipleChoiceQ9.category = 1;
+        multipleChoiceQ9.difficulty = 3;
+        multipleChoiceQ9.timeToSolve = 2;
+        multipleChoiceQ9.choice1 = "100";
+        multipleChoiceQ9.choice2 = "0";
+        multipleChoiceQ9.choice3 = "Print x";
+        multipleChoiceQ9.choice4 = "Return Error";
+        multipleChoiceQ9.correctAnswer = "100";
+        multipleChoiceQ9.save();
 
 
 
