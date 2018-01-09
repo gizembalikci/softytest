@@ -10,17 +10,12 @@ import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.addCodingQuestion;
-import views.html.codeEditor;
-import views.html.codingQuestion;
-import views.html.result;
+import views.html.*;
 
 import javax.inject.Inject;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class TestController extends Controller{
 
@@ -565,104 +560,106 @@ public class TestController extends Controller{
 
 
 
-    //For multiple choice  question
-    public void checkAnswer(){
+    public Result checkAnswerMultiple(Long id){
+        MultipleChoice multipleChoice = MultipleChoice.find.byId(id);
+        DynamicForm requestData = formFactory.form().bindFromRequest();
+        String choice = requestData.get("choice");
+        Logger.debug("Choice: " + choice);
+        if(multipleChoice.correctAnswer.equals(choice)){
+            session().put(id.toString(), "correct");
+            Logger.debug("Komutan logar");
+        }
+        else
+            session().put(id.toString(), "false");
 
-        String correctAnswersString = session().get("correct");
-        String wrongAnswersString = session().get("wrong");
-
-        int correctAnswer= Integer.parseInt(correctAnswersString);
-        int wrongAnswer= Integer.parseInt(wrongAnswersString);
-
-         //TODO check konulacak doğru yanlış için if(doğruysa)
-        correctAnswer+=1;
-        //TODO else
-        wrongAnswer+=1;
-
-        correctAnswersString = Integer.toString(correctAnswer);
-        wrongAnswersString = Integer.toString(wrongAnswer);
-
-        session().put("correct",correctAnswersString);
-        session().put("wrong",wrongAnswersString);
-
+        return ok();
     }
 
     public Result checkAnswerCoding(Long id){
-        String correctAnswersString = session().get("correct");
-        String wrongAnswersString = session().get("wrong");
-
-        int correctAnswer= Integer.parseInt(correctAnswersString);
-        int wrongAnswer= Integer.parseInt(wrongAnswersString);
-
+        MultipleChoice multipleChoice = MultipleChoice.find.byId(id);
         DynamicForm requestData = formFactory.form().bindFromRequest();
-        String output = requestData.get("output");
-        Logger.debug("Output: " + output);
-        CodingQuestion codingQuestion = CodingQuestion.find.byId(id);
-        Logger.debug("Outputs:" + codingQuestion.outputs);
-        if(output.equals(codingQuestion.outputs)) {
-            correctAnswer += 1;
-            Logger.debug("Correct Answer yaay");
+        String choice = requestData.get("choice");
+        Logger.debug("Choice: " + choice);
+        if(multipleChoice.correctAnswer.equals(choice)){
+            session().put(id.toString(), "correct");
+            Logger.debug("Komutan logar");
         }
-        else {
-            wrongAnswer += 1;
-            Logger.debug("Wrong answer boooooooo");
-        }
-        correctAnswersString = Integer.toString(correctAnswer);
-        wrongAnswersString = Integer.toString(wrongAnswer);
+        else
+            session().put(id.toString(), "false");
 
-        session().put("correct",correctAnswersString);
-        session().put("wrong",wrongAnswersString);
         return ok();
     }
 
 
-//    public static List<Question> generateMixedTest(int difficulty){
-//        int n = difficulty * 15;
-//        List<Question> questions = Question.find.all();
-//        List<Question> testQuestions = new ArrayList<>();
-//
-//        for(int i = 0; i < n; i++){
-//            Question question = questions.get(new Random().nextInt(questions.size()));
-//            testQuestions.add(question);
-//        }
-//
-//        return testQuestions;
-//    }
-//
-//    public static List<CodingQuestion> generateCodingTest(int difficulty){
-//        int n = difficulty * 5;
-//        List<CodingQuestion> questions = CodingQuestion.find.all();
-//        List<CodingQuestion> testQuestions = new ArrayList<>();
-//
-//        for(int i = 0; i < n; i++){
-//            CodingQuestion question = questions.get(new Random().nextInt(questions.size()));
-//            testQuestions.add(question);
-//        }
-//
-//        return testQuestions;
-//    }
-//
-//    public static List<MultipleChoice> generateMultipleChoiceTest(int difficulty){
-//        int n = difficulty * 5;
-//        List<MultipleChoice> questions = MultipleChoice.find.all();
-//        List<MultipleChoice> testQuestions = new ArrayList<>();
-//
-//        for(int i = 0; i < n; i++){
-//            MultipleChoice question = questions.get(new Random().nextInt(questions.size()));
-//            testQuestions.add(question);
-//        }
-//
-//        return testQuestions;
-//    }
-
     public Result categories(){
+        String email = session().get("user");
+        session().clear();
+        session().put("user", email);
+        session().put("correct", "0");
+        session().put("wrong", "0");
         return ok(views.html.categories.render());
     }
 
-    public Result codingQuestion(Long questionID){
-        CodingQuestion question = CodingQuestion.find.byId(questionID);
-        return ok(views.html.codingQuestion.render(question));
+    public Result startTest(int category){
+        List<Question> questions = newTest(category);
+        return ok(test.render(questions));
     }
+
+//    public Result renderTestPage(Long current, Long next){
+//        Question question = Question.find.byId(current);
+//        Question next = Question.find.byId(next);
+//        if(question.getClass().isInstance(CodingQuestion.class)){
+//            return ok(codingQuestionView.render((CodingQuestion) question));
+//        }
+//        else
+//            return badRequest();
+//    }
+
+    public List<Question> newTest(int category){
+        DynamicForm requestData = formFactory.form().bindFromRequest();
+        String star = requestData.get("rating");
+        int difficulty = Integer.parseInt(star.substring(2));
+        Logger.debug("Star: " + star.substring(2));
+        List<MultipleChoice> multipleChoices = MultipleChoice.find.all();//3 tane multip random
+        Logger.debug("Multiple: " + multipleChoices.size());
+        List<CodingQuestion> codingQuestions = CodingQuestion.find.all();// 2 tane coding
+        Logger.debug("Coding: " + codingQuestions.size());
+
+        List<Question> test = new ArrayList<>();
+        Map<Long, Long> testIDs = new HashMap<>();
+        int testTime = 0;
+        int n = 3;
+        while(n > 0) {
+            MultipleChoice multipleChoice = multipleChoices.get(new Random().nextInt(multipleChoices.size()));
+            if(multipleChoice.difficulty == difficulty && multipleChoice.category == category && !test.contains(multipleChoice)){
+                n--;
+                test.add(multipleChoice);
+                testTime += multipleChoice.timeToSolve;
+            }
+        }
+
+        n = 2;
+        while(n > 0) {
+            CodingQuestion codingQuestion = codingQuestions.get(new Random().nextInt(codingQuestions.size()));
+            if(codingQuestion.difficulty == difficulty && codingQuestion.category == category && !test.contains(codingQuestion)){
+                n--;
+                test.add(codingQuestion);
+                testTime += codingQuestion.timeToSolve;
+            }
+        }
+
+        for(int i = 0; i < test.size()-1; i++){
+            testIDs.put(test.get(i).id, test.get(i+1).id);
+        }
+        testIDs.put(test.get(test.size()-1).id, -1L);
+
+        return test;
+    }
+
+//    public Result codingQuestion(Long questionID){
+//        CodingQuestion question = CodingQuestion.find.byId(questionID);
+//        return ok(views.html.codingQuestionView.render(question));
+//    }
 
 
     public Result codeMirror(){

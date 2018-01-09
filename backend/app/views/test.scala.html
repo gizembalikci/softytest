@@ -1,0 +1,21 @@
+@(questions: List[Question])
+@layout("Softytest"){
+    <script src="@routes.Assets.versioned("javascripts/textareaTabs.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/parseOutput.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/textareaAuto.js")"></script>
+    <script>
+            $(function(){
+                $('.normal').autosize();
+                $('.animated').autosize({append: "\n"});
+            });
+    </script>
+
+    @for((question, index) <- questions.zipWithIndex){
+        @if(question.getClass().getName().contains("Coding")){
+            @codingQuestionView(question.asInstanceOf[CodingQuestion], index+1)
+        }
+        @if(question.getClass().getName().contains("Multiple")){
+            @multipleQuestionView(question.asInstanceOf[MultipleChoice], index+1)
+        }
+    }
+}

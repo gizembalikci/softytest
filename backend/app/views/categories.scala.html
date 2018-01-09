@@ -1,7 +1,7 @@
 @()
 
 @layout("Categories"){
-            <div class="py-3">
+    <div class="py-3">
                 <div class="container">
                     <div class="row">
                         <h1 class="display-3">Choose a category and difficulty</h1>
@@ -11,7 +11,7 @@
             <div class="py-3">
                 <div class="container">
                     <div class="row">
-                        <a class="btn btn-primary w-25 text-info p-2 border border-info" href="" data-toggle="">Button </a>
+                        <button type="submit" class="btn btn-primary w-25 text-info p-2 border border-info" href="@routes.TestController.startTest(1)" data-toggle="">Button </button>
                         <fieldset class="rating mx-auto py-2">
                             <input type="radio" id="star1.1" name="rating" value="1.1" class="mx-1"><label class="full" for="star1.1"></label>
                             <input type="radio" id="star1.2" name="rating" value="1.2" class="mx-1"><label class="full" for="star1.2"></label>
@@ -22,18 +22,21 @@
             <div class="py-3">
                 <div class="container">
                     <div class="row">
-                        <a class="btn btn-primary w-25 text-info p-2 border border-info" href="" data-toggle="">Button </a>
-                        <fieldset class="rating mx-auto py-2">
-                            <input type="radio" id="star2.1" name="rating" value="2.1" class="mx-1"><label class="full" for="star2.1"></label>
-                            <input type="radio" id="star2.2" name="rating" value="2.2" class="mx-1"><label class="full" for="star2.2"></label>
-                            <input type="radio" id="star2.3" name="rating" value="2.3" class="mx-1"><label class="full" for="star2.3"></label> </fieldset>
+                        <form name = "category2" class="" method="get" action="@routes.TestController.startTest(1)">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary w-25 text-info p-2 border border-info" href= data-toggle="">Button </button></div>
+                            <fieldset class="rating mx-auto py-2">
+                                <input type="radio" id="star2.1" name="rating" value="2.1" class="mx-1"><label class="full" for="star2.1"></label>
+                                <input type="radio" id="star2.2" name="rating" value="2.2" class="mx-1"><label class="full" for="star2.2"></label>
+                                <input type="radio" id="star2.3" name="rating" value="2.3" class="mx-1"><label class="full" for="star2.3"></label> </fieldset>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="py-3">
                 <div class="container">
                     <div class="row">
-                        <a class="btn btn-primary w-25 text-info p-2 border border-info" href="" data-toggle="">Button </a>
+                        <button type="submit" class="btn btn-primary w-25 text-info p-2 border border-info" href="@routes.TestController.startTest(3)" data-toggle="">Button </button>
                         <fieldset class="rating mx-auto py-2">
                             <input type="radio" id="star3.1" name="rating" value="3.1" class="mx-1"><label class="full" for="star3.1"></label>
                             <input type="radio" id="star3.2" name="rating" value="3.2" class="mx-1"><label class="full" for="star3.2"></label>
@@ -44,7 +47,7 @@
             <div class="py-3">
                 <div class="container">
                     <div class="row">
-                        <a class="btn btn-primary w-25 text-info p-2 border border-info" href="" data-toggle="">Button </a>
+                        <button type="submit" class="btn btn-primary w-25 text-info p-2 border border-info" href="@routes.TestController.startTest(4)" data-toggle="">Button </button>
                         <fieldset class="rating mx-auto py-2">
                             <input type="radio" id="star4.1" name="rating" value="4.1" class="mx-1"><label class="full" for="star4.1"></label>
                             <input type="radio" id="star4.2" name="rating" value="4.2" class="mx-1"><label class="full" for="star4.2"></label>
