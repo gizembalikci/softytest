@@ -5651,6 +5651,12 @@ body > * {
     top: 40px;
     opacity: 0; }
 
+.animated {
+  -webkit-transition: height 0.2s;
+  -moz-transition: height 0.2s;
+  transition: height 0.2s;
+}
+
 .animate-in-left {
   transition: all 1.0s ease-out;
   position: relative;
