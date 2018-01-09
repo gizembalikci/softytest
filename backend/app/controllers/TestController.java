@@ -146,9 +146,9 @@ public class TestController extends Controller{
         codingQuestion1.save();
 
         CodingQuestion codingQuestion2 = new CodingQuestion();
-        codingQuestion2.questionContent = "Given a positive integer denoting , do the following:\n" +
-                "If ,1 <= n <= 9 then print the lowercase English word corresponding to the number (e.g., one for , two for , etc.).\n" +
-                "If ,9<n print Greater than 9.\n";
+        codingQuestion2.questionContent = "Given a positive integer denoting , do the following:</br>" +
+                "If ,1 <= n <= 9 then print the lowercase English word corresponding to the number (e.g., one for 1).</br>" +
+                "If ,9<n print Greater than 9.</br>";
         codingQuestion2.category = 1;
         codingQuestion2.difficulty = 1;
         codingQuestion2.timeToSolve = 2;
@@ -189,7 +189,9 @@ public class TestController extends Controller{
         codingQuestion2.save();
 
         CodingQuestion codingQuestion3 = new CodingQuestion();
-        codingQuestion3.questionContent = "Given an integer,N, print its first 10 multiples. Each multiple N x i (where 1 <= i <= 10) should be printed on a new line in the form: N x i = result.";
+        codingQuestion3.questionContent = "Given an integer,N, print its first 10 multiples.</br>" +
+                "Each multiple N x i (where 1 <= i <= 10) should be printed on a new line in the form:</br> " +
+                "N x i = result.";
         codingQuestion3.category = 1;
         codingQuestion3.difficulty = 1;
         codingQuestion3.timeToSolve = 2;
@@ -212,9 +214,9 @@ public class TestController extends Controller{
         codingQuestion3.save();
 
         CodingQuestion codingQuestion4 = new CodingQuestion();
-        codingQuestion4.questionContent = "Read two integers from STDIN and print three lines where:\n" +
-                "1.The first line contains the sum of the two numbers.\n" +
-                "2.The second line contains the difference of the two numbers (first - second).\n" +
+        codingQuestion4.questionContent = "Read two integers from STDIN and print three lines where:</br> " +
+                "1.The first line contains the sum of the two numbers.</br> " +
+                "2.The second line contains the difference of the two numbers (first - second).</br>" +
                 "3.The third line contains the product of the two numbers.";
         codingQuestion4.category = 1;
         codingQuestion4.difficulty = 2;
@@ -244,15 +246,15 @@ public class TestController extends Controller{
         codingQuestion5.save();
 
         CodingQuestion codingQuestion6 = new CodingQuestion();
-        codingQuestion6.questionContent = "A postal code P must be a number in the range of (100 000 - 999 999).\n" +
-                "A postal code P must not contain more than one alternating repetitive digit pair.\n" +
-                "Alternating repetitive digits are digits which repeat immediately after the next digit.\n" +
-                "In other words, an alternating repetitive digit pair is formed by two equal digits that have just a single digit between them.\n" +
-                "\tFor example:\n" +
-                "\t121426 # Here, 1 is an alternating repetitive digit.\n" +
-                "\t523563 # Here, NO digit is an alternating repetitive digit.\n" +
-                "\t552523 # Here, both 2 and 5 are alternating repetitive digits."+
-                "\tYour task is to validate whether P is a valid postal code or not.";
+        codingQuestion6.questionContent = "A postal code P must be a number in the range of (100 000 - 999 999).</br> " +
+                "A postal code P must not contain more than one alternating repetitive digit pair.</br> " +
+                "Alternating repetitive digits are digits which repeat immediately after the next digit.</br> " +
+                "In other words, an alternating repetitive digit pair is formed by two equal digits that have just a single digit between them.</br>" +
+                "&nbsp For example:</br> " +
+                "&nbsp 121426 # Here, 1 is an alternating repetitive digit.</br> " +
+                "&nbsp 523563 # Here, NO digit is an alternating repetitive digit.</br> " +
+                "&nbsp 552523 # Here, both 2 and 5 are alternating repetitive digits.</br> "+
+                "&nbsp Your task is to validate whether P is a valid postal code or not.</br> ";
         codingQuestion6.category = 1;
         codingQuestion6.difficulty = 2;
         codingQuestion6.timeToSolve = 3;
@@ -265,14 +267,20 @@ public class TestController extends Controller{
 
 
         CodingQuestion codingQuestion7 = new CodingQuestion();
-        codingQuestion7.questionContent = "The Java instanceof operator is used to test if the object or instance is an instanceof the specified type.\n" +
-                "\tIn this problem we have given you three classes in the editor:\n" +
-                "\tStudent class\n" +
-                "\tRockstar class\n" +
-                "\tHacker class\n" +
-                "\tIn the main method, we populated an ArrayList with several instances of these classes. count method calculates how many instances of each type is present in the ArrayList. The code prints three integers, the number of instance of Student class, the number of instance of Rockstar class, the number of instance of Hacker class.\n"+
-                "\tBut some lines of the code are missing, and you have to fix it by modifying only lines! Don't add, delete or modify any extra line.\n" +
-                "\tTo restore the original code in the editor, click on the top left icon in the editor and create a new buffer.\n" ;
+        codingQuestion7.questionContent = "The Java instanceof operator is used to test if the object or instance is an</br>" +
+                "instanceof the specified type.</br>" +
+                "&nbsp In this problem we have given you three classes in the editor:</br>" +
+                "&nbsp Student class</br>" +
+                "&nbsp Rockstar class</br>" +
+                "&nbsp Hacker class</br>" +
+                "&nbsp In the main method, we populated an ArrayList with several instances of these classes.</br>" +
+                "count method calculates how many instances of each type is present in the ArrayList.</br>" +
+                "</br>The code prints three integers, the number of instance of Student class,</br>" +
+                "the number of instance of Rockstar class, the number of instance of Hacker class.</br>"+
+                "&nbsp But some lines of the code are missing, and you have to fix it by modifying only lines!</br>" +
+                "Don't add, delete or modify any extra line.</br>" +
+                "&nbsp To restore the original code in the editor,</br>" +
+                "click on the top left icon in the editor and create a new buffer.</br>" ;
         codingQuestion7.category = 1;
         codingQuestion7.difficulty = 3;
         codingQuestion7.timeToSolve = 4;
@@ -325,19 +333,20 @@ public class TestController extends Controller{
 
 
         CodingQuestion codingQuestion8 = new CodingQuestion();
-        codingQuestion8.questionContent = "The code in your editor does the following:\n" +
+        codingQuestion8.questionContent = "The code in your editor does the following:</br>" +
+                "</br>" +
+                "&nbsp 1.Reads an integer from stdin and saves it to a variable, n , denoting some number of integers.</br>" +
+                "&nbsp 2.Reads n integers corresponding to a0,a1,..,an-1 from stdin and saves each integer to a variable,</br>" +
+                "&nbsp 3.Attempts to print each element of an array of integers named .</br>" +
                 "\n" +
-                "    1.Reads an integer from stdin and saves it to a variable, n , denoting some number of integers.\n" +
-                "    2.Reads n integers corresponding to a0,a1,..,an-1 from stdin and saves each integer to a variable, .\n" +
-                "    3.Attempts to print each element of an array of integers named .\n" +
-                "\n" +
-                "Write the following code in the unlocked portion of your editor:\n" +
-                "\n" +
-                "    1.Create an array,a, capable of holding n integers.\n" +
-                "    2.Modify the code in the loop so that it saves each sequential value to its corresponding location in the array. For example, the first value must be stored in , the second value must be stored in , and so on.\n" +
-                "\n" +
-                "Good luck!\n" +
-                "\n";
+                "Write the following code in the unlocked portion of your editor:</br>" +
+                "</br>" +
+                "&nbsp 1.Create an array,a, capable of holding n integers.</br>" +
+                "&nbsp 2.Modify the code in the loop so that it saves each sequential value to its corresponding location in the array.</br>" +
+                " For example, the first value must be stored in , the second value must be stored in , and so on.</br>" +
+                "</br>" +
+                "Good luck!</br>" +
+                "</br>";
         codingQuestion8.category = 1;
         codingQuestion8.difficulty = 3;
         codingQuestion8.timeToSolve = 4;
@@ -374,18 +383,20 @@ public class TestController extends Controller{
         codingQuestion8.save();
 
         CodingQuestion codingQuestion9 = new CodingQuestion();
-        codingQuestion9.questionContent = "You have to write a function int max_of_four(int a, int b, int c, int d) which reads four arguments and returns the greatest of them.\n" +
-                "\n" +
-                "+= : Add and assignment operator. It adds the right operand to the left operand and assigns the result to the left operand.\n" +
-                "a += b is equivalent to a = a + b;\n" +
-                "\n" +
-                "Input Format\n" +
-                "\n" +
-                "Input will contain four integers -a,b,c,d, one in each line.\n" +
-                "\n" +
-                "Output Format\n" +
-                "\n" +
-                "Print the greatest of the four integers.\n" +
+        codingQuestion9.questionContent = "You have to write a function int max_of_four(int a, int b, int c, int d)</br>" +
+                " which reads four arguments and returns the greatest of them.</br>" +
+                "</br>" +
+                "+= : Add and assignment operator. It adds the right operand to the</br>" +
+                "left operand and assigns the result to the left operand.</br>" +
+                "a += b is equivalent to a = a + b;</br>" +
+                "</br>" +
+                "Input Format</br>" +
+                "</br>" +
+                "Input will contain four integers -a,b,c,d, one in each line.</br>" +
+                "</br>" +
+                "Output Format</br>" +
+                "</br>" +
+                "Print the greatest of the four integers.</br>" +
                 "PS: I/O will be automatically handled.";
         codingQuestion6.category = 1;
         codingQuestion6.difficulty = 2;
@@ -441,7 +452,8 @@ public class TestController extends Controller{
 
 
         MultipleChoice multipleChoiceQ3 = new MultipleChoice();
-        multipleChoiceQ3.questionContent = "Which of the following access specifier in C# allows a class to hide its member variables and member functions from other functions and objects?";
+        multipleChoiceQ3.questionContent = "Which of the following access specifier in C# allows a class to hide</br>" +
+                "its member variables and member functions from other functions and objects?</br>";
         multipleChoiceQ3.category = 1;
         multipleChoiceQ3.difficulty = 1;
         multipleChoiceQ3.timeToSolve = 2;
@@ -518,13 +530,13 @@ public class TestController extends Controller{
 
 
         MultipleChoice multipleChoiceQ8 = new MultipleChoice();
-        multipleChoiceQ8.questionContent = "What is the output of the following program?\n" +
-                "\n" +
-                "#include<stdio.h>\n" +
-                "\n" +
-                "main()\n" +
-                "{\t\n" +
-                "   fprintf(stdout,\"Hello, World!\");\n" +
+        multipleChoiceQ8.questionContent = "What is the output of the following program?</br>" +
+                "</br>" +
+                "#include<stdio.h></br>" +
+                "</br>" +
+                "main()</br>" +
+                "{&nbsp</br>" +
+                "   fprintf(stdout,\"Hello, World!\");</br>" +
                 "}";
         multipleChoiceQ8.category = 1;
         multipleChoiceQ8.difficulty = 3;
@@ -538,15 +550,15 @@ public class TestController extends Controller{
 
 
         MultipleChoice multipleChoiceQ9 = new MultipleChoice();
-        multipleChoiceQ9.questionContent = "#include<stdio.h>\n" +
-                "\n" +
-                "int main()\n" +
-                "{\n" +
-                "    int y = 100;\n" +
-                "    const int x = y;\n" +
-                "    \n" +
-                "    printf(\"%d\\n\", x);\n" +
-                "    return 0;\n" +
+        multipleChoiceQ9.questionContent = "#include<stdio.h></br>" +
+                "</br>" +
+                "int main()</br>" +
+                "{</br>" +
+                "    int y = 100;</br>" +
+                "    const int x = y;</br>" +
+                "    </br>" +
+                "    printf(\"%d\\n\", x);</br>" +
+                "    return 0;</br>" +
                 "}";
         multipleChoiceQ9.category = 1;
         multipleChoiceQ9.difficulty = 3;
