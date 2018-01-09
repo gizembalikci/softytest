@@ -82,10 +82,11 @@ public class UserController extends Controller{
         if(User.find.byId(email) != null)
             return notAcceptable("This email is already registered");
         User user = new User();
-        String password = requestData.get("password");
+        String password = requestData.get("passwordSave");
         user.email = email;
         session().put("user", user.email);
         user.password = UserRepository.hashPassword(password);
+        Logger.debug("Password hash: " + user.password);
         user.name = email.split("@")[0];
         Logger.debug(user.name);
         ProfilePic profilePic = new ProfilePic();
@@ -98,6 +99,7 @@ public class UserController extends Controller{
         }
         user.profilePic = profilePic;
         user.save();
+        Logger.debug("After save: " + user.password);
         for(int i = 0; i < 3; i++) {
             Statistics statistics = new Statistics();
             statistics.user = user;
@@ -119,12 +121,14 @@ public class UserController extends Controller{
         Form<User> userForm = formFactory.form(User.class).bindFromRequest("email", "password");
         User user = userForm.bindFromRequest().get();
         User dbUser = User.find.byId(user.email);
+
         if(dbUser == null){
             return notFound("User not found or wrong password");
         }
         else if(dbUser.password.equals(UserRepository.hashPassword(user.password))){
             session().put("user", dbUser.email);
-            flash().put("loggedin", "1");
+            session().put("correct", "0");
+            session().put("wrong", "0");
             return redirect(routes.UserController.profile());
         }
         else
@@ -235,10 +239,8 @@ public class UserController extends Controller{
 
     public Result code(Long id){
         CodingQuestion codingQuestion = CodingQuestion.find.byId(id);
-        DynamicForm requestData = formFactory.form().bindFromRequest();
-        String src = request().body().asFormUrlEncoded().get("source")[0];
-        String source = "sanane ya of salak mısın";
-        Logger.debug(Json.stringify(jsonSource));
+        String source = request().body().asText();
+        //Logger.debug(Json.stringify(jsonSource));
         String body = "source=" + java.net.URLEncoder.encode(source) + "&lang=" + codingQuestion.programmingLanguage + "&testcases=" + java.net.URLEncoder.encode(codingQuestion.testcases) + "&api_key=hackerrank%7C2457518-2104%7C9d116831bff01e4b23474b30324b288025403da9";
         CompletionStage<WSResponse> response = ws.url("http://api.hackerrank.com/checker/submission.json").
                 setHeader("Accept", "application/json").

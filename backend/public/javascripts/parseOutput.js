@@ -8,11 +8,20 @@ function compileRequest(id){
         if (xhr.readyState === 4 && xhr.status === 200) {
             var json = JSON.parse(xhr.responseText);
             var output = json["result"]["stdout"];
-            var outputStr = "";
-            output.forEach(function (element) {
-                outputStr += element;
-            });
-            document.getElementById("output").innerText = outputStr;
+
+            if(output == null) {
+                output = json["result"]["compilemessage"];
+                document.getElementById("output").innerText = output;
+            }
+
+            else {
+                var outputStr = "";
+                output.forEach(function (element) {
+                    alert(element);
+                    outputStr += element;
+                });
+                document.getElementById("output").innerText = outputStr;
+            }
         }
     };
     xhr.send(source);

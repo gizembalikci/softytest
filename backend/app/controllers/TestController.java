@@ -4,11 +4,14 @@ import akka.http.javadsl.model.HttpResponse;
 import com.fasterxml.jackson.databind.JsonNode;
 import io.ebean.Ebean;
 import models.*;
+import play.Logger;
+import play.data.DynamicForm;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.addCodingQuestion;
+import views.html.codeEditor;
 import views.html.codingQuestion;
 import views.html.result;
 
@@ -139,7 +142,7 @@ public class TestController extends Controller{
                 "    return 0;\n}";
         codingQuestion1.programmingLanguage = "2";
         codingQuestion1.testcases = "[\"1 2 3\"]";
-        codingQuestion1.outputs = "10";
+        codingQuestion1.outputs = "6";
         codingQuestion1.save();
 
         CodingQuestion codingQuestion2 = new CodingQuestion();
@@ -237,7 +240,7 @@ public class TestController extends Controller{
                 "\tn = int(raw_input())\n";
         codingQuestion5.programmingLanguage = "5";
         codingQuestion5.testcases = "[\"3\", \"24\"]";
-        codingQuestion5.outputs = "Weird, Not Weird";
+        codingQuestion5.outputs = "Weird\nNot Weird";
         codingQuestion5.save();
 
         CodingQuestion codingQuestion6 = new CodingQuestion();
@@ -584,6 +587,34 @@ public class TestController extends Controller{
 
     }
 
+    public Result checkAnswerCoding(Long id){
+        String correctAnswersString = session().get("correct");
+        String wrongAnswersString = session().get("wrong");
+
+        int correctAnswer= Integer.parseInt(correctAnswersString);
+        int wrongAnswer= Integer.parseInt(wrongAnswersString);
+
+        DynamicForm requestData = formFactory.form().bindFromRequest();
+        String output = requestData.get("output");
+        Logger.debug("Output: " + output);
+        CodingQuestion codingQuestion = CodingQuestion.find.byId(id);
+        Logger.debug("Outputs:" + codingQuestion.outputs);
+        if(output.equals(codingQuestion.outputs)) {
+            correctAnswer += 1;
+            Logger.debug("Correct Answer yaay");
+        }
+        else {
+            wrongAnswer += 1;
+            Logger.debug("Wrong answer boooooooo");
+        }
+        correctAnswersString = Integer.toString(correctAnswer);
+        wrongAnswersString = Integer.toString(wrongAnswer);
+
+        session().put("correct",correctAnswersString);
+        session().put("wrong",wrongAnswersString);
+        return ok();
+    }
+
 
 //    public static List<Question> generateMixedTest(int difficulty){
 //        int n = difficulty * 15;
@@ -634,5 +665,7 @@ public class TestController extends Controller{
     }
 
 
-
+    public Result codeMirror(){
+        return ok(codeEditor.render());
+    }
 }
