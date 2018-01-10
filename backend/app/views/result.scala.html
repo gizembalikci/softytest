@@ -1,10 +1,10 @@
-@(numOfCorrect:String)(numOfWrong:String)(successRate:String)(overallSuccessRate:String)
+@(correct: Integer, wrong: Integer, successRate: Double, overallSuccessRate: Double, s: String, o: String)
 @layout("Test Results"){
     <div class="container">
         <div class="py-5">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="profile.html">
+                    <a href="@routes.UserController.profile()">
                         <img src="./images/ppexample.jpg" width="200px" class="float-left rounded-circle m-0"> </a>
                 </div>
                 <div class="col-md-12">
@@ -14,8 +14,8 @@
             <div class="py-3">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="display-4 px-5 ml-auto">Number of correct answers:@numOfCorrect</h1>
-                        <h1 class="display-4 px-5 ml-auto">Number of incorrect answers:@numOfWrong</h1>
+                        <h1 class="display-4 px-5 ml-auto">Number of correct answers:@correct</h1>
+                        <h1 class="display-4 px-5 ml-auto">Number of incorrect answers:@wrong</h1>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="progress">
-                            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: @successRate%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@successRate"> @successRate</div>
+                            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: @successRate%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@successRate"> @s</div>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: @overallSuccessRate%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@overallSuccessRate"> @overallSuccessRate</div>
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width:@overallSuccessRate%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="@overallSuccessRate"> @o</div>
                     </div>
                 </div>
             </div>

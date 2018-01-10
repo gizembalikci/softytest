@@ -26,7 +26,7 @@ GET     /codemirror                 controllers.TestController.codeMirror()
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
 GET     /message                    controllers.AsyncController.message
-GET     /result/:category           controllers.TestController.showResult(category: String)
+GET     /result                     controllers.TestController.showResult()
 
 GET     /users                      controllers.UserController.showAll()
 GET     /users/:id                  controllers.UserController.show(id: String)

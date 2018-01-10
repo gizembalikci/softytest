@@ -18,4 +18,14 @@
             @multipleQuestionView(question.asInstanceOf[MultipleChoice], index+1)
         }
     }
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-right py-2">
+                <form action="@routes.TestController.showResult()" method="GET">
+                    <button type="submit" class="btn-primary text-right btn px-4" href="">Finish Test</button>
+                </form>
+            </div>
+        </div>
+    </div>
 }

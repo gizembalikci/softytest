@@ -38,10 +38,7 @@ import java.io.File;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Blob;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.CompletionStage;
 
 import play.mvc.Security;
@@ -251,9 +248,22 @@ public class UserController extends Controller{
         String stringified = Json.stringify(json);
         Logger.debug(pretty);
         Logger.debug(stringified);
-        Map<String, String> mapped = new HashMap<String, String>();
 
         return ok(json);
     }
+
+//    public Integer rank(int category){
+//        List<User> users = User.find.all();
+//        Collections.sort(users, new Comparator<User>() {
+//            @Override
+//            public int compare(User user, User t1) {
+//
+//                return (user.testStatistics.get(0).correct > t1.testStatistics.get(0).correct) ? -1: (user.testStatistics.get(0).correct < t1.testStatistics.get(0).correct) ? 1 : 0;
+//            }
+//        });
+//
+//
+//
+//    }
 
 }
