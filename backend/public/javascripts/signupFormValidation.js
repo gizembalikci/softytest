@@ -1,4 +1,4 @@
-var password = document.signup.password;
+var password = document.signup.passwordSave;
 var con_password = document.signup.conpassword;
 
 function signUpFormValidation() {

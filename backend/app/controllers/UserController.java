@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import io.ebean.Ebean;
 import io.ebeaninternal.server.type.ScalarTypeJsonMap;
 import models.CodingQuestion;
 import play.libs.Json;
@@ -67,25 +68,25 @@ public class UserController extends Controller{
 
     public Result index() {
         Form<User> userForm = formFactory.form(User.class);
-
+        if(session().get("user") != null)
+            return redirect(routes.UserController.profile());
+        else
             return ok(index.render(userForm, flash()));
-
     }
 
-    @Transactional
     public Result save(){
         DynamicForm requestData = formFactory.form().bindFromRequest(); //Model olmadan formdan veri çekebiliyosun böyle
-        String email = requestData.get("email");
+        String email = requestData.get("emailSave");
         if(User.find.byId(email) != null)
             return notAcceptable("This email is already registered");
         User user = new User();
         String password = requestData.get("passwordSave");
-        user.email = email;
+        user.setEmail(email);
         session().put("user", user.email);
-        user.password = UserRepository.hashPassword(password);
+        user.setPassword(UserRepository.hashPassword(password));
         Logger.debug("Password hash: " + user.password);
-        user.name = email.split("@")[0];
-        Logger.debug(user.name);
+        user.setName(email.split("@")[0]);
+        //Logger.debug(user.name);
         ProfilePic profilePic = new ProfilePic();
         try {
             profilePic.pic = extractBytes("public/images/ppexample.jpg");
@@ -109,25 +110,34 @@ public class UserController extends Controller{
             statisticsList.add(statistics);
             user.setTestStatistics(statisticsList);
             user.update();
+            Logger.debug("After update: " + user.password);
         }
-        //TODO: email registered error js view yazılacak.
         return redirect(routes.UserController.edit());
     }
-
+    
     public Result authenticate(){
-        Form<User> userForm = formFactory.form(User.class).bindFromRequest("email", "password");
-        User user = userForm.bindFromRequest().get();
-        User dbUser = User.find.byId(user.email);
+        DynamicForm requestData = formFactory.form().bindFromRequest();
+        String email = requestData.get("email");
+        Logger.debug("Login email: " + email);
+        String password = requestData.get("password");
+        User dbUser = User.find.byId(email);
 
         if(dbUser == null){
             return notFound("User not found or wrong password");
         }
-        else if(dbUser.password.equals(UserRepository.hashPassword(user.password))){
+        else if(dbUser.password.equals(UserRepository.hashPassword(password))){
             session().put("user", dbUser.email);
             return redirect(routes.UserController.profile());
         }
-        else
+        else {
+            Logger.debug(dbUser.email);
+            Logger.debug(dbUser.bio);
+            Logger.debug(dbUser.getPassword());
+            Logger.debug(password);
+            Logger.debug(UserRepository.hashPassword(password));
             return badRequest();
+
+        }
     }
 
     @Security.Authenticated(StoreSecured.class)
@@ -144,14 +154,6 @@ public class UserController extends Controller{
         if(oldUser == null){
             return notFound("User not found");
         }
-        email = requestData.get("email");
-        if(email != "")
-            oldUser.setEmail(email);
-        String pw = requestData.get("password");
-        if(pw != "")
-            oldUser.setPassword(UserRepository.hashPassword(pw));
-        else
-            oldUser.setPassword(oldUser.password);
         String bio = requestData.get("bio");
         if(bio != "")
             oldUser.setBio(bio);
@@ -194,7 +196,7 @@ public class UserController extends Controller{
 
     @Security.Authenticated(StoreSecured.class)
     public Result logout(){
-        session().remove("user");
+        session().clear();
         return redirect(routes.UserController.index());
     }
 
@@ -235,7 +237,6 @@ public class UserController extends Controller{
     public Result code(Long id){
         CodingQuestion codingQuestion = CodingQuestion.find.byId(id);
         String source = request().body().asText();
-        Logger.debug(source);
         String body = "source=" + java.net.URLEncoder.encode(source) + "&lang=" + codingQuestion.programmingLanguage + "&testcases=" + java.net.URLEncoder.encode(codingQuestion.testcases) + "&api_key=hackerrank%7C2457518-2104%7C9d116831bff01e4b23474b30324b288025403da9";
         CompletionStage<WSResponse> response = ws.url("http://api.hackerrank.com/checker/submission.json").
                 setHeader("Accept", "application/json").
@@ -243,27 +244,21 @@ public class UserController extends Controller{
                 post(body);
 
         JsonNode json = response.toCompletableFuture().join().asJson();
-
-        String pretty = Json.prettyPrint(json);
-        String stringified = Json.stringify(json);
-        Logger.debug(pretty);
-        Logger.debug(stringified);
-
         return ok(json);
     }
 
-//    public Integer rank(int category){
-//        List<User> users = User.find.all();
-//        Collections.sort(users, new Comparator<User>() {
-//            @Override
-//            public int compare(User user, User t1) {
-//
-//                return (user.testStatistics.get(0).correct > t1.testStatistics.get(0).correct) ? -1: (user.testStatistics.get(0).correct < t1.testStatistics.get(0).correct) ? 1 : 0;
-//            }
-//        });
-//
-//
-//
-//    }
+    public static int rank(int category){
+        List<User> users = Ebean.find(User.class).fetch("testStatistics").where().eq("category", category).findList();
+        Collections.sort(users, new Comparator<User>() {
+            @Override
+            public int compare(User user, User t1) {
+
+                return (user.testStatistics.get(0).correct > t1.testStatistics.get(0).correct) ? -1: (user.testStatistics.get(0).correct < t1.testStatistics.get(0).correct) ? 1 : 0;
+            }
+        });
+        User user = User.find.byId(session().get("user"));
+        return users.indexOf(user)+1;
+
+    }
 
 }

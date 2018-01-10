@@ -4,10 +4,10 @@
         <div class="container py-5">
             <div class="row">
                 <div class="col-md-3 text-white">
-                    <img class="img-fluid d-block mx-auto mb-5" src="https://pingendo.github.io/templates/sections/assets/footer_logo2.png"> </div>
+                    <img class="img-fluid d-block mx-auto mb-5" src="@routes.Assets.at("logo.png")"> </div>
                 <div class="col-md-9 text-white align-self-center">
                     <h1 class="display-3 mb-4">Softytest</h1>
-                    <p class="lead mb-5">A place where you can find out your strong sides and bişey your weaknesses &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <p class="lead mb-5">You can find out your weaknesses and strengths here.
                         <br> </p>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                             <div class="tab-pane fade" id="signup">
                                 <form name = "signup" class="" method="post" action="@routes.UserController.save()" onsubmit="return signUpFormValidation()">
                                     <div class="form-group"> <label>Email address</label>
-                                        <input type="email" name="email" class="form-control" placeholder="Enter email"> </div>
+                                        <input type="email" name="emailSave" class="form-control" placeholder="Enter email"> </div>
                                     <div class="form-group"> <label>Password</label>
                                         <input type="password" name="passwordSave" class="form-control" placeholder="Password"> </div>
                                     <div class="form-group"> <label>Confirm Password</label>

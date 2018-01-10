@@ -18,7 +18,6 @@ function compileRequest(id){
             else {
                 var outputStr = "";
                 output.forEach(function (element) {
-                    alert(element);
                     outputStr += element;
                 });
                 document.getElementById("output"+id.toString()).innerText = outputStr;

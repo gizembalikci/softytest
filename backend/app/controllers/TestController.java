@@ -108,10 +108,16 @@ public class TestController extends Controller{
         }
         Double overallSuccess = overallSuccessRateD(user.testStatistics);
         NumberFormat formatter = new DecimalFormat("#0.00");
-
+        String category = session().get("category");
+        if(category.equals("1"))
+            category = "Backend Development Test";
+        else if(category.equals("2"))
+            category = "Frontend Development Test";
+        else
+            category = "Mixed Test";
         session().clear();
         session().put("user", user.email);
-        return ok(result.render(correct, wrong, successRate, overallSuccess, formatter.format(successRate), overallSuccessRate(user.testStatistics)));
+        return ok(result.render(correct, wrong, successRate, overallSuccess, formatter.format(successRate), overallSuccessRate(user.testStatistics), category));
     }
 
     public String calculateCurrentSuccessRate(){
@@ -576,6 +582,396 @@ public class TestController extends Controller{
         multipleChoiceQ9.correctAnswer = "100";
         multipleChoiceQ9.save();
 
+        ///////////////////////Front-end Development Questions//////////////////////
+
+        //////Difficulty 1//////////////////
+        MultipleChoice multipleChoiceQ10 = new MultipleChoice();
+        multipleChoiceQ10.questionContent = "What does HTML stand for?";
+        multipleChoiceQ10.category = 2;
+        multipleChoiceQ10.difficulty = 1;
+        multipleChoiceQ10.timeToSolve = 2;
+        multipleChoiceQ10.choice1 = "Home Tool Markup Language";
+        multipleChoiceQ10.choice2 = "Hyperlinks and Text Markup Language";
+        multipleChoiceQ10.choice3 = "Hyper Text Markup Language";
+        multipleChoiceQ10.choice4 = "Home Text Markup Language";
+        multipleChoiceQ10.correctAnswer = "Hyper Text Markup Language";
+        multipleChoiceQ10.save();
+
+
+
+        MultipleChoice multipleChoiceQ11 = new MultipleChoice();
+        multipleChoiceQ11.questionContent = "Choose the correct HTML element for the largest heading:";
+        multipleChoiceQ11.category = 2;
+        multipleChoiceQ11.difficulty = 1;
+        multipleChoiceQ11.timeToSolve = 2;
+        multipleChoiceQ11.choice1 = "<h6>";
+        multipleChoiceQ11.choice2 = "<head>";
+        multipleChoiceQ11.choice3 = "<h1>";
+        multipleChoiceQ11.choice4 = "<heading>";
+        multipleChoiceQ11.correctAnswer = "<h1>";
+        multipleChoiceQ11.save();
+
+        MultipleChoice multipleChoiceQ12 = new MultipleChoice();
+        multipleChoiceQ12.questionContent = "What is the correct HTML for adding a background color?";
+        multipleChoiceQ12.category = 2;
+        multipleChoiceQ12.difficulty = 1;
+        multipleChoiceQ12.timeToSolve = 2;
+        multipleChoiceQ12.choice1 = "<body style=\"background-color:yellow;\">";
+        multipleChoiceQ12.choice2 = "<body bg=\"yellow\">";
+        multipleChoiceQ12.choice3 = "<background>yellow</background>";
+        multipleChoiceQ12.choice4 = "<bg>blue</bg>";
+        multipleChoiceQ12.correctAnswer = "<body style=\"background-color:yellow;\">";
+        multipleChoiceQ12.save();
+
+
+
+
+
+        MultipleChoice multipleChoiceQ13 = new MultipleChoice();
+        multipleChoiceQ13.questionContent = "How can you get the total number of arguments passed to a function in javascript?";
+        multipleChoiceQ13.category = 2;
+        multipleChoiceQ13.difficulty = 1;
+        multipleChoiceQ13.timeToSolve = 2;
+        multipleChoiceQ13.choice1 = "Using args.length property";
+        multipleChoiceQ13.choice2 = "Using arguments.length property";
+        multipleChoiceQ13.choice3 = "Both of the above.";
+        multipleChoiceQ13.choice4 = "None of the above.";
+        multipleChoiceQ13.correctAnswer = "Using arguments.length property";
+        multipleChoiceQ13.save();
+
+
+
+
+        MultipleChoice multipleChoiceQ14 = new MultipleChoice();
+        multipleChoiceQ14.questionContent = "Which of the following is correct about features of JavaScript?";
+        multipleChoiceQ14.category = 2;
+        multipleChoiceQ14.difficulty = 1;
+        multipleChoiceQ14.timeToSolve = 2;
+        multipleChoiceQ14.choice1 = "JavaScript is is complementary to and integrated with HTML.";
+        multipleChoiceQ14.choice2 = "JavaScript is open and cross-platform.";
+        multipleChoiceQ14.choice3 = "Both of the above.";
+        multipleChoiceQ14.choice4 = "All of the above.";
+        multipleChoiceQ14.correctAnswer = "Both of the above.";
+        multipleChoiceQ14.save();
+
+
+
+        MultipleChoice multipleChoiceQ15 = new MultipleChoice();
+        multipleChoiceQ15.questionContent = "Which of the following type of variable takes precedence over other\n" +
+                "if names are same in JavaScript?";
+        multipleChoiceQ15.category = 2;
+        multipleChoiceQ15.difficulty = 1;
+        multipleChoiceQ15.timeToSolve = 2;
+        multipleChoiceQ15.choice1 = "global variable";
+        multipleChoiceQ15.choice2 = "local variable";
+        multipleChoiceQ15.choice3 = "Both of the above.";
+        multipleChoiceQ15.choice4 = "None of the above.";
+        multipleChoiceQ15.correctAnswer = "local variable";
+        multipleChoiceQ15.save();
+
+
+
+
+        MultipleChoice multipleChoiceQ16 = new MultipleChoice();
+        multipleChoiceQ16.questionContent = "Which of the following is correct about CSS?";
+        multipleChoiceQ16.category = 2;
+        multipleChoiceQ16.difficulty = 1;
+        multipleChoiceQ16.timeToSolve = 2;
+        multipleChoiceQ16.choice1 = "Style sheets allow content to be optimized for more than one type of device.";
+        multipleChoiceQ16.choice2 = "CSS can store web applications locally with the help of an offline cache.";
+        multipleChoiceQ16.choice3 = "Using CSS, we can view offline websites.\n" +
+                "The cache also ensures faster loading and better overall performance of the website.";
+        multipleChoiceQ16.choice4 = "All of the above.";
+        multipleChoiceQ16.correctAnswer = "All of the above.";
+        multipleChoiceQ16.save();
+
+
+
+
+
+        MultipleChoice multipleChoiceQ17 = new MultipleChoice();
+        multipleChoiceQ17.questionContent = "Which of the following defines a measurement in centimeters in CSS?";
+        multipleChoiceQ17.category = 2;
+        multipleChoiceQ17.difficulty = 1;
+        multipleChoiceQ17.timeToSolve = 2;
+        multipleChoiceQ17.choice1 = "%";
+        multipleChoiceQ17.choice2 = "cm";
+        multipleChoiceQ17.choice3 = "em";
+        multipleChoiceQ17.choice4 = "ex";
+        multipleChoiceQ17.correctAnswer = "cm";
+        multipleChoiceQ17.save();
+
+
+        MultipleChoice multipleChoiceQ18 = new MultipleChoice();
+        multipleChoiceQ18.questionContent = "Which of the following property is used to control the scrolling of \n" +
+                "an image in the background in CSS?";
+        multipleChoiceQ18.category = 2;
+        multipleChoiceQ18.difficulty = 1;
+        multipleChoiceQ18.timeToSolve = 2;
+        multipleChoiceQ18.choice1 = "background-attachment";
+        multipleChoiceQ18.choice2 = "background";
+        multipleChoiceQ18.choice3 = "background-repeat";
+        multipleChoiceQ18.choice4 = "background-position";
+        multipleChoiceQ18.correctAnswer = "background-attachment";
+        multipleChoiceQ18.save();
+
+
+        //////Difficulty 2//////////////////
+
+        MultipleChoice multipleChoiceQ19 = new MultipleChoice();
+        multipleChoiceQ19.questionContent = " Which of the following CSS property is used to align the text of a document in?";
+        multipleChoiceQ19.category = 2;
+        multipleChoiceQ19.difficulty = 2;
+        multipleChoiceQ19.timeToSolve = 2;
+        multipleChoiceQ19.choice1 = "text-indent";
+        multipleChoiceQ19.choice2 = "text-align";
+        multipleChoiceQ19.choice3 = "text-decoration";
+        multipleChoiceQ19.choice4 = "text-transform";
+        multipleChoiceQ19.correctAnswer = "text-align";
+        multipleChoiceQ19.save();
+
+
+
+        MultipleChoice multipleChoiceQ20 = new MultipleChoice();
+        multipleChoiceQ20.questionContent = " Which of the following CSS property is used to set the width of an image border?";
+        multipleChoiceQ20.category = 2;
+        multipleChoiceQ20.difficulty = 2;
+        multipleChoiceQ20.timeToSolve = 2;
+        multipleChoiceQ20.choice1 = "border";
+        multipleChoiceQ20.choice2 = "height";
+        multipleChoiceQ20.choice3 = "width";
+        multipleChoiceQ20.choice4 = "moz-opacity";
+        multipleChoiceQ20.correctAnswer = "border";
+        multipleChoiceQ20.save();
+
+
+
+        MultipleChoice multipleChoiceQ21 = new MultipleChoice();
+        multipleChoiceQ21.questionContent = "Which of the following CSS property changes the width of bottom border?";
+        multipleChoiceQ21.category = 2;
+        multipleChoiceQ21.difficulty = 2;
+        multipleChoiceQ21.timeToSolve = 2;
+        multipleChoiceQ21.choice1 = ":border-bottom-width";
+        multipleChoiceQ21.choice2 = ":border-top-width";
+        multipleChoiceQ21.choice3 = ":border-left-width";
+        multipleChoiceQ21.choice4 = ":border-right-width";
+        multipleChoiceQ21.correctAnswer = ":border-bottom-width";
+        multipleChoiceQ21.save();
+
+
+
+        MultipleChoice multipleChoiceQ22 = new MultipleChoice();
+        multipleChoiceQ22.questionContent = "Which of the following Javascript function of Boolean object returns \n" +
+                "a string containing the source of the Boolean object?";
+        multipleChoiceQ22.category = 2;
+        multipleChoiceQ22.difficulty = 2;
+        multipleChoiceQ22.timeToSolve = 2;
+        multipleChoiceQ22.choice1 = "toSource()";
+        multipleChoiceQ22.choice2 = "valueOf()";
+        multipleChoiceQ22.choice3 = "toString()";
+        multipleChoiceQ22.choice4 = "None of the above.";
+        multipleChoiceQ22.correctAnswer = "toSource()";
+        multipleChoiceQ22.save();
+
+
+        MultipleChoice multipleChoiceQ23 = new MultipleChoice();
+        multipleChoiceQ23.questionContent =  " Which of the following Javascript function of String object returns the\n" +
+                "index within the calling String object of the first occurrence of the specified value?";
+        multipleChoiceQ23.category = 2;
+        multipleChoiceQ23.difficulty = 2;
+        multipleChoiceQ23.timeToSolve = 2;
+        multipleChoiceQ23.choice1 = "indexOf()";
+        multipleChoiceQ23.choice2 = "substr()";
+        multipleChoiceQ23.choice3 = "search()";
+        multipleChoiceQ23.choice4 = "lastIndexOf()";
+        multipleChoiceQ23.correctAnswer = "indexOf()";
+        multipleChoiceQ23.save();
+
+
+
+        MultipleChoice multipleChoiceQ24 = new MultipleChoice();
+        multipleChoiceQ24.questionContent = "Which of the following function of String object returns a string \n" +
+                "representing the specified object?";
+        multipleChoiceQ24.category = 2;
+        multipleChoiceQ24.difficulty = 2;
+        multipleChoiceQ24.timeToSolve = 2;
+        multipleChoiceQ24.choice1 = "toLocaleUpperCase()";
+        multipleChoiceQ24.choice2 = "toUpperCase()";
+        multipleChoiceQ24.choice3 = "toString()";
+        multipleChoiceQ24.choice4 = "substring()";
+        multipleChoiceQ24.correctAnswer = "toString()";
+        multipleChoiceQ24.save();
+
+
+        MultipleChoice multipleChoiceQ25 = new MultipleChoice();
+        multipleChoiceQ25.questionContent = "Choose the correct HTML element to define important text";
+        multipleChoiceQ25.category = 2;
+        multipleChoiceQ25.difficulty = 2;
+        multipleChoiceQ25.timeToSolve = 2;
+        multipleChoiceQ25.choice1 = "<important>";
+        multipleChoiceQ25.choice2 = "<b>";
+        multipleChoiceQ25.choice3 = "<i>";
+        multipleChoiceQ25.choice4 = "<strong>";
+        multipleChoiceQ25.correctAnswer = "<strong>";
+        multipleChoiceQ25.save();
+
+
+
+        MultipleChoice multipleChoiceQ26 = new MultipleChoice();
+        multipleChoiceQ26.questionContent = "How can you open a link in a new tab/browser window?";
+        multipleChoiceQ26.category = 2;
+        multipleChoiceQ26.difficulty = 2;
+        multipleChoiceQ26.timeToSolve = 2;
+        multipleChoiceQ26.choice1 = "<a href=\"url\" target=\"_blank\">";
+        multipleChoiceQ26.choice2 = "<a href=\"url\" new>";
+        multipleChoiceQ26.choice3 = "<a href=\"url\" target=\"new\">";
+        multipleChoiceQ26.choice4 = "<a href=\"url\" target=\"_new\">";
+        multipleChoiceQ26.correctAnswer = "<a href=\"url\" target=\"_blank\">";
+        multipleChoiceQ26.save();
+
+
+
+        MultipleChoice multipleChoiceQ27 = new MultipleChoice();
+        multipleChoiceQ27.questionContent = "Which of these HTML elements are all <table> elements?";
+        multipleChoiceQ27.category = 2;
+        multipleChoiceQ27.difficulty = 2;
+        multipleChoiceQ27.timeToSolve = 2;
+        multipleChoiceQ27.choice1 = "<table><tr><td>";
+        multipleChoiceQ27.choice2 = "<table><tr><tt>";
+        multipleChoiceQ27.choice3 = "<table><head><tfoot>";
+        multipleChoiceQ27.choice4 = "<thead><body><tr>";
+        multipleChoiceQ27.correctAnswer = "<table><tr><td>";
+        multipleChoiceQ27.save();
+
+
+
+        /////////////////Difficulty 3//////////////////////
+
+        MultipleChoice multipleChoiceQ28 = new MultipleChoice();
+        multipleChoiceQ28.questionContent = "Which of the following Javascript function of String \n" +
+                "object causes a string to be italic, as if it were in an <i> tag?";
+        multipleChoiceQ28.category = 2;
+        multipleChoiceQ28.difficulty = 3;
+        multipleChoiceQ28.timeToSolve = 2;
+        multipleChoiceQ28.choice1 = "fixed()";
+        multipleChoiceQ28.choice2 = "fontcolor()";
+        multipleChoiceQ28.choice3 = "fontsize()";
+        multipleChoiceQ28.choice4 = "italics()";
+        multipleChoiceQ28.correctAnswer = "italics() ";
+        multipleChoiceQ28.save();
+
+
+        MultipleChoice multipleChoiceQ29 = new MultipleChoice();
+        multipleChoiceQ29.questionContent = "Which of the following Javascript function of Array \n" +
+                "object applies a function simultaneously against two values of \n" +
+                "the array (from left-to-right) as to reduce it to a single value?\n";
+        multipleChoiceQ29.category = 2;
+        multipleChoiceQ29.difficulty = 3;
+        multipleChoiceQ29.timeToSolve = 2;
+        multipleChoiceQ29.choice1 = "pop()";
+        multipleChoiceQ29.choice2 = "push()";
+        multipleChoiceQ29.choice3 = "reduce()";
+        multipleChoiceQ29.choice4 = "reduceRight()";
+        multipleChoiceQ29.correctAnswer = "reduceRight()";
+        multipleChoiceQ29.save();
+
+
+        MultipleChoice multipleChoiceQ30 = new MultipleChoice();
+        multipleChoiceQ30.questionContent = "Which of the following Javascript function of Array\n" +
+                "object applies a function simultaneously against two values of\n" +
+                "the array (from right-to-left) as to reduce it to a single value?\n";
+        multipleChoiceQ30.category = 2;
+        multipleChoiceQ30.difficulty = 3;
+        multipleChoiceQ30.timeToSolve = 2;
+        multipleChoiceQ30.choice1 = "pop()";
+        multipleChoiceQ30.choice2 = "push()";
+        multipleChoiceQ30.choice3 = "reduce()";
+        multipleChoiceQ30.choice4 = "reduceRight()";
+        multipleChoiceQ30.correctAnswer = "reduceRight()";
+        multipleChoiceQ30.save();
+
+
+        MultipleChoice multipleChoiceQ31 = new MultipleChoice();
+        multipleChoiceQ31.questionContent = "Which of the following CSS property specifies whether a border \n" +
+                "should be solid, dashed line, double line, or one of \n" +
+                "the other possible values?\n";
+        multipleChoiceQ31.category = 2;
+        multipleChoiceQ31.difficulty = 3;
+        multipleChoiceQ31.timeToSolve = 2;
+        multipleChoiceQ31.choice1 = ":border-color";
+        multipleChoiceQ31.choice2 = ":border-style";
+        multipleChoiceQ31.choice3 = ":border-width";
+        multipleChoiceQ31.choice4 = ":border-bottom-color";
+        multipleChoiceQ31.correctAnswer = ":border-style";
+        multipleChoiceQ31.save();
+
+
+        MultipleChoice multipleChoiceQ32 = new MultipleChoice();
+        multipleChoiceQ32.questionContent = "Which of the following value of cursor shows it as an arrow in CSS?";
+        multipleChoiceQ32.category = 2;
+        multipleChoiceQ32.difficulty = 3;
+        multipleChoiceQ32.timeToSolve = 2;
+        multipleChoiceQ32.choice1 = "crosshair";
+        multipleChoiceQ32.choice2 = "default";
+        multipleChoiceQ32.choice3 = "pointer";
+        multipleChoiceQ32.choice4 = "move";
+        multipleChoiceQ32.correctAnswer = "default";
+        multipleChoiceQ32.save();
+
+
+
+        MultipleChoice multipleChoiceQ33 = new MultipleChoice();
+        multipleChoiceQ33.questionContent = "Which of the following property changes the width of right border?";
+        multipleChoiceQ33.category = 2;
+        multipleChoiceQ33.difficulty = 3;
+        multipleChoiceQ33.timeToSolve = 2;
+        multipleChoiceQ33.choice1 = ":border-bottom-width";
+        multipleChoiceQ33.choice2 = ":border-top-width";
+        multipleChoiceQ33.choice3 = ":border-left-width";
+        multipleChoiceQ33.choice4 = ":border-right-width";
+        multipleChoiceQ33.correctAnswer = ":border-right-width";
+        multipleChoiceQ33.save();
+
+        MultipleChoice multipleChoiceQ34 = new MultipleChoice();
+        multipleChoiceQ34.questionContent = "Which HTML attribute specifies an alternate text for an image,\n" +
+                "if the image cannot be displayed?";
+        multipleChoiceQ34.category = 2;
+        multipleChoiceQ34.difficulty = 3;
+        multipleChoiceQ34.timeToSolve = 2;
+        multipleChoiceQ34.choice1 = "alt";
+        multipleChoiceQ34.choice2 = "longdesc";
+        multipleChoiceQ34.choice3 = "src";
+        multipleChoiceQ34.choice4 = "title";
+        multipleChoiceQ34.correctAnswer = "alt";
+        multipleChoiceQ34.save();
+
+
+
+        MultipleChoice multipleChoiceQ35 = new MultipleChoice();
+        multipleChoiceQ35.questionContent = "In HTML, onblur and onfocus are:";
+        multipleChoiceQ35.category = 2;
+        multipleChoiceQ35.difficulty = 3;
+        multipleChoiceQ35.timeToSolve = 2;
+        multipleChoiceQ35.choice1 = "Event attributes";
+        multipleChoiceQ35.choice2 = "HTML elements";
+        multipleChoiceQ35.choice3 = "Style attributes";
+        multipleChoiceQ35.choice4 = "Inlier element";
+        multipleChoiceQ35.correctAnswer = "Event attributes";
+        multipleChoiceQ35.save();
+
+
+
+        MultipleChoice multipleChoiceQ36 = new MultipleChoice();
+        multipleChoiceQ36.questionContent = "The HTML <canvas> element is used to:";
+        multipleChoiceQ36.category = 2;
+        multipleChoiceQ36.difficulty = 3;
+        multipleChoiceQ36.timeToSolve = 2;
+        multipleChoiceQ36.choice1 = "draw graphics";
+        multipleChoiceQ36.choice2 = "display database records";
+        multipleChoiceQ36.choice3 = "manipulate data in MySQL";
+        multipleChoiceQ36.choice4 = "create draggable elements";
+        multipleChoiceQ36.correctAnswer = "draw graphics";
+        multipleChoiceQ36.save();
 
 
         return ok();
@@ -590,26 +986,25 @@ public class TestController extends Controller{
         Logger.debug("Choice: " + choice);
         if(multipleChoice.correctAnswer.equals(choice)){
             session().put(id.toString(), "correct");
-            Logger.debug("Komutan logar");
         }
         else
-            session().put(id.toString(), "false");
+            session().put(id.toString(), "wrong");
 
         return ok();
     }
 
     public Result checkAnswerCoding(Long id){
-        MultipleChoice multipleChoice = MultipleChoice.find.byId(id);
         DynamicForm requestData = formFactory.form().bindFromRequest();
-        String choice = requestData.get("choice");
-        Logger.debug("Choice: " + choice);
-        if(multipleChoice.correctAnswer.equals(choice)){
+        String output = requestData.get("output"+id.toString());
+        CodingQuestion codingQuestion = CodingQuestion.find.byId(id);
+        Logger.debug(output);
+        Logger.debug(codingQuestion.outputs);
+        if(output.equals(codingQuestion.outputs)) {
             session().put(id.toString(), "correct");
-            Logger.debug("Komutan logar");
         }
-        else
-            session().put(id.toString(), "false");
-
+        else {
+            session().put(id.toString(), "wrong");
+        }
         return ok();
     }
 
@@ -627,7 +1022,8 @@ public class TestController extends Controller{
         session().put("wrong", "0");
         session().put("category", String.valueOf(category));
         List<Question> questions = newTest(category);
-        return ok(test.render(questions));
+        int timeToSolve = 1;
+        return ok(test.render(questions, 1));
     }
 
 //    public Result renderTestPage(Long current, Long next){
@@ -651,15 +1047,12 @@ public class TestController extends Controller{
         Logger.debug("Coding: " + codingQuestions.size());
 
         List<Question> test = new ArrayList<>();
-        Map<Long, Long> testIDs = new HashMap<>();
-        int testTime = 0;
         int n = 3;
         while(n > 0) {
             MultipleChoice multipleChoice = multipleChoices.get(new Random().nextInt(multipleChoices.size()));
             if(multipleChoice.difficulty == difficulty && multipleChoice.category == category && !test.contains(multipleChoice)){
                 n--;
                 test.add(multipleChoice);
-                testTime += multipleChoice.timeToSolve;
                 session().put(multipleChoice.id.toString(), "wrong");
             }
         }
@@ -670,7 +1063,6 @@ public class TestController extends Controller{
             if(codingQuestion.difficulty == difficulty && codingQuestion.category == category && !test.contains(codingQuestion)){
                 n--;
                 test.add(codingQuestion);
-                testTime += codingQuestion.timeToSolve;
                 session().put(codingQuestion.id.toString(), "wrong");
             }
         }

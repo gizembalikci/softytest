@@ -29,12 +29,20 @@
                             <tbody>
                                     @for(statistics <- user.testStatistics){
                                         <tr>
-                                        <td>Category @statistics.category</td>
+                                            @if(statistics.category == 1) {
+                                                <td>Backend Development</td>
+                                            }
+                                            @if(statistics.category == 2) {
+                                                <td>Frontend Development</td>
+                                            }
+                                            @if(statistics.category == 3){
+                                                <td>Mixed</td>
+                                            }
                                         <td>@TestController.totalAnswered(statistics)</td>
                                         <td>@TestController.correct(statistics)</td>
                                         <td>@TestController.wrong(statistics)</td>
                                         <td>%@TestController.successRate(statistics)</td>
-                                        <td>rank</td>
+                                        <td>@UserController.rank(statistics.category)</td>
                                         </tr>
                                     }
                                 <tr>
@@ -43,14 +51,14 @@
                                     <td>@TestController.overallCorrect(user.testStatistics)</td>
                                     <td>@TestController.overallWrong(user.testStatistics)</td>
                                     <td>%@TestController.overallSuccessRate(user.testStatistics)</td>
-                                    <td>totalRank</td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <a class="btn btn-primary text-info border border-info p-2 text-left" href="@routes.TestController.categories()" data-toggle="">Start New Test </a>
-                <a type="submit" class="btn btn-primary text-info border border-info p-2 text-left" href="@routes.UserController.logout()" data-toggle="">Logout</a>
+                <a type="submit" class="btn btn-primary text-info border border-info p-2 text-right" href="@routes.UserController.logout()" data-toggle="">Logout</a>
             </div>
         </div>
 }

@@ -1,4 +1,4 @@
-@(questions: List[Question])
+@(questions: List[Question], timeToSolve: Integer)
 @layout("Softytest"){
     <script src="@routes.Assets.versioned("javascripts/textareaTabs.js")"></script>
     <script src="@routes.Assets.versioned("javascripts/parseOutput.js")"></script>
@@ -9,6 +9,9 @@
                 $('.animated').autosize({append: "\n"});
             });
     </script>
+    <script src="@routes.Assets.versioned("javascripts/timer.js")"></script>
+
+    <div>Time left = <span id="time">20:00</span></div>
 
     @for((question, index) <- questions.zipWithIndex){
         @if(question.getClass().getName().contains("Coding")){

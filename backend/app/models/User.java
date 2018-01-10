@@ -18,6 +18,7 @@ public class User extends Model{
     @Id
     public String email;
 
+    @Column(columnDefinition = "TEXT")
     @Constraints.Required
     public String password;
 

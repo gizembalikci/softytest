@@ -1,14 +1,14 @@
-@(correct: Integer, wrong: Integer, successRate: Double, overallSuccessRate: Double, s: String, o: String)
+@(correct: Integer, wrong: Integer, successRate: Double, overallSuccessRate: Double, s: String, o: String, category: String)
 @layout("Test Results"){
     <div class="container">
         <div class="py-5">
             <div class="row">
                 <div class="col-md-12">
                     <a href="@routes.UserController.profile()">
-                        <img src="./images/ppexample.jpg" width="200px" class="float-left rounded-circle m-0"> </a>
+                        <img src="@routes.Assets.at("ppexample.jpg")" width="200px" class="float-left rounded-circle m-0"> </a>
                 </div>
                 <div class="col-md-12">
-                    <h1 class="display-3 text-center">Results of "Test Code"</h1>
+                    <h1 class="display-3 text-center">Results of @category</h1>
                 </div>
             </div>
             <div class="py-3">

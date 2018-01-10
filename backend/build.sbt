@@ -28,3 +28,4 @@ libraryDependencies ++= Seq(
 libraryDependencies += "org.webjars.bower" % "bootstrap-sass" % "3.3.6"
 
 libraryDependencies += filters
+libraryDependencies += "org.mindrot" % "jbcrypt" % "0.3m"

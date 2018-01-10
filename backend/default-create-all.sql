@@ -42,7 +42,7 @@ create table statistics (
 
 create table user (
   email                         varchar(255) not null,
-  password                      varchar(255),
+  password                      TEXT,
   name                          varchar(255),
   profile_pic_id                bıgınt,
   bio                           varchar(255),
