@@ -1,5 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0m/home/cagdas/softytestFinal/backend/test/FunctionalTest.java:20:1: method render in class views.html.index cannot be applied to given types;[0m
-[0m[[0m[31merror[0m] [0m[0m  required: play.data.Form<forms.LoginForm>,play.mvc.Http.Flash[0m
-[0m[[0m[31merror[0m] [0m[0m  found: java.lang.String[0m
-[0m[[0m[31merror[0m] [0m[0m  reason: actual and formal argument lists differ in length[0m
-[0m[[0m[31merror[0m] [0m[0m        Content html = views.html.index.render("Your new application is ready.");[0m

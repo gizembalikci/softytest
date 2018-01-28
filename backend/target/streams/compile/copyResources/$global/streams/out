@@ -1,9 +1,0 @@
-[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/gizem/Desktop/softytest/backend/conf/routes,/home/gizem/Desktop/softytest/backend/target/scala-2.12/classes/routes)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/gizem/Desktop/softytest/backend/conf/ebean.properties,/home/gizem/Desktop/softytest/backend/target/scala-2.12/classes/ebean.properties)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/gizem/Desktop/softytest/backend/conf/application.conf,/home/gizem/Desktop/softytest/backend/target/scala-2.12/classes/application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/gizem/Desktop/softytest/backend/conf/evolutions,/home/gizem/Desktop/softytest/backend/target/scala-2.12/classes/evolutions)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/gizem/Desktop/softytest/backend/conf/logback.xml,/home/gizem/Desktop/softytest/backend/target/scala-2.12/classes/logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/gizem/Desktop/softytest/backend/conf/evolutions/default,/home/gizem/Desktop/softytest/backend/target/scala-2.12/classes/evolutions/default)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/gizem/Desktop/softytest/backend/conf/evolutions/default/2.sql,/home/gizem/Desktop/softytest/backend/target/scala-2.12/classes/evolutions/default/2.sql)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/home/gizem/Desktop/softytest/backend/conf/evolutions/default/1.sql,/home/gizem/Desktop/softytest/backend/target/scala-2.12/classes/evolutions/default/1.sql)[0m
